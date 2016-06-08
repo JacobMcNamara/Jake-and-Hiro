@@ -10,6 +10,7 @@
 \usepackage{amsthm} %theorems
 \usepackage[usenames]{color} %color
 \usepackage{hyperref}
+\usepackage[all]{xy}
 
 \theoremstyle{definition}
 \newtheorem{theorem}{Theorem}[subsection]
@@ -19,6 +20,8 @@
 \newtheorem{prop}[theorem]{Proposition}
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{cor}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{defn}[theorem]{Definition}
 \newtheorem{conjecture}[theorem]{Conjecture}
 \newtheorem{speculation}[theorem]{Speculation}
 \newtheorem{question}[theorem]{Question}
@@ -45,7 +48,7 @@ In no particular order:
 	\item
 		If you want to compile the file after adding new bibliography references, make sure you add the reference to the biblio.bib file . Also make sure to run BibTeX.
 	\item
-		Hiro's comments will be in \hiro{blue}, Jake's in \jake{red}.
+		Hiro's comments are in \hiro{blue}, Jake's in \jake{red}.
 \enumd
 
 \include{structure-sheaf} % Progress on and thoughts about building the structure sheaf of an implicit manifold.
