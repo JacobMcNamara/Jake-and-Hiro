@@ -24,94 +24,38 @@
 \newtheorem{question}[theorem]{Question}
 \newtheorem{problem}[theorem]{Problem}
 \newtheorem{exercise}[theorem]{Exercise}
-%	non-italicized stuff
-\theoremstyle{definition}
-\newtheorem{definition}[theorem]{Definition}
-\newtheorem{defn}[theorem]{Definition}
-\newtheorem{notation}[theorem]{Notation}
-\newtheorem{example}[theorem]{Example}
-\newtheorem{fact}[theorem]{Fact}
-\newtheorem{remark}[theorem]{Remark}
-\newtheorem{construction}[theorem]{Construction}
-\newtheorem{image}[theorem]{Figure}
+
+
 %	Macros
-\newcommand\nc{\newcommand}
-\nc{\on}{\operatorname}
-\nc{\DMO}{\DeclareMathOperator}
+\input{macros}
 
-
-%Operators
-\DMO{\id}{id}
-
-%Names
-\nc{\broken}{\mathsf{Broken}}
-\nc{\metric}{\mathsf{Metric}}
-\nc{\trees}{\mathsf{Trees}}
-\nc{\disks}{\mathsf{Disks}}
-\nc{\traj}{\mathsf{Traj}}
-\nc{\holdisks}{\mathsf{HolDisks}}
-\nc{\data}{\mathsf{Data}}
-
-%Symbols
-\nc{\delbar}{\overline{\partial}}
-\nc{\tensor}{\otimes}
-
-
-\nc{\hiro}{\textcolor{blue}}
-
-%Laziness
-\nc{\eqn}{\begin{equation}}
-\nc{\eqnd}{\end{equation}}
-\nc{\eqnn}{\begin{equation}\nonumber}
-\nc{\enum}{\begin{enumerate}}
-\nc{\enumd}{\end{enumerate}}
-\nc{\xra}{\xrightarrow}
-
-\def\cA{\mathcal A}\def\cB{\mathcal B}\def\cC{\mathcal C}\def\cD{\mathcal D}
-\def\cE{\mathcal E}\def\cF{\mathcal F}\def\cG{\mathcal G}\def\cH{\mathcal H}
-\def\cI{\mathcal I}\def\cJ{\mathcal J}\def\cK{\mathcal K}\def\cL{\mathcal L}
-\def\cM{\mathcal M}\def\cN{\mathcal N}\def\cO{\mathcal O}\def\cP{\mathcal P}
-\def\cQ{\mathcal Q}\def\cR{\mathcal R}\def\cS{\mathcal S}\def\cT{\mathcal T}
-\def\cU{\mathcal U}\def\cV{\mathcal V}\def\cW{\mathcal W}\def\cX{\mathcal X}
-\def\cY{\mathcal Y}\def\cZ{\mathcal Z}
-
-\def\AA{\mathbb A}\def\BB{\mathbb B}\def\CC{\mathbb C}\def\DD{\mathbb D}
-\def\EE{\mathbb E}\def\FF{\mathbb F}\def\GG{\mathbb G}\def\HH{\mathbb H}
-\def\II{\mathbb I}\def\JJ{\mathbb J}\def\KK{\mathbb K}\def\LL{\mathbb L}
-\def\MM{\mathbb M}\def\NN{\mathbb N}\def\OO{\mathbb O}\def\PP{\mathbb P}
-\def\QQ{\mathbb Q}\def\RR{\mathbb R}\def\SS{\mathbb S}\def\TT{\mathbb T}
-\def\UU{\mathbb U}\def\VV{\mathbb V}\def\WW{\mathbb W}\def\XX{\mathbb X}
-\def\YY{\mathbb Y}\def\ZZ{\mathbb Z}
-
-\def\sA{\mathsf A}\def\sB{\mathsf B}\def\sC{\mathsf C}\def\sD{\mathsf D}
-\def\sE{\mathsf E}\def\sF{\mathsf F}\def\sG{\mathsf G}\def\sH{\mathsf H}
-\def\sI{\mathsf I}\def\sJ{\mathsf J}\def\sK{\mathsf K}\def\sL{\mathsf L}
-\def\sM{\mathsf M}\def\sN{\mathsf N}\def\sO{\mathsf O}\def\sP{\mathsf P}
-\def\sQ{\mathsf Q}\def\sR{\mathsf R}\def\sS{\mathsf S}\def\sT{\mathsf T}
-\def\sU{\mathsf U}\def\sV{\mathsf V}\def\sW{\mathsf W}\def\sX{\mathsf X}
-\def\sY{\mathsf Y}\def\sZ{\mathsf Z}
-\def\ssF{\mathsf{sF}}
-
-\def\bA{\mathbf A}\def\bB{\mathbf B}\def\bC{\mathbf C}\def\bD{\mathbf D}
-\def\bE{\mathbf E}\def\bF{\mathbf F}\def\bG{\mathbf G}\def\bH{\mathbf H}
-\def\bI{\mathbf I}\def\bJ{\mathbf J}\def\bK{\mathbf K}\def\bL{\mathbf L}
-\def\bM{\mathbf M}\def\bN{\mathbf N}\def\bO{\mathbf O}\def\bP{\mathbf P}
-\def\bQ{\mathbf Q}\def\bR{\mathbf R}\def\bS{\mathbf S}\def\bT{\mathbf T}
-\def\bU{\mathbf U}\def\bV{\mathbf V}\def\bW{\mathbf W}\def\bX{\mathbf X}
-\def\bY{\mathbf Y}\def\bZ{\mathbf Z}
-\def\bDelta{\mathbf\Delta}
-
-\def\fA{\mathfrak A}\def\fB{\mathfrak B}\def\fC{\mathfrak C}\def\fD{\mathfrak D}
-\def\fE{\mathfrak E}\def\fF{\mathfrak F}\def\fG{\mathfrak G}\def\fH{\mathfrak H}
-\def\fI{\mathfrak I}\def\fJ{\mathfrak J}\def\fK{\mathfrak K}\def\fL{\mathfrak L}
-\def\fM{\mathfrak M}\def\fN{\mathfrak N}\def\fO{\mathfrak O}\def\fP{\mathfrak P}
-\def\fQ{\mathfrak Q}\def\fR{\mathfrak R}\def\fS{\mathfrak S}\def\fT{\mathfrak T}
-\def\fU{\mathfrak U}\def\fV{\mathfrak V}\def\fW{\mathfrak W}\def\fX{\mathfrak X}
-\def\fY{\mathfrak Y}\def\fZ{\mathfrak Z}
-
-
+\title{}
+\author{Jacob McNamara and Hiro Lee Tanaka}
 \begin{document}
 
-Hello
+\maketitle
+
+\begin{abstract}
+We compare Pardon's framework of implicit atlases with Spivak's framework for an oo-category of derived manifolds.
+\end{abstract}
+
+\section{Logistical stuff}
+In no particular order:
+\enum
+	\item
+		If you want to compile the file after adding new bibliography references, make sure you add the reference to the biblio.bib file . Also make sure to run BibTeX.
+\enumd
+
+
+\include{goals} % Notes to ourselves about what our goals are, ongoing conversations, etc.
+
+\include{derived-manifolds} % File where we inform the reader the basics of derived manifolds
+
+\include{implicit-atlases} % File where we inform the reader the basics of Pardon's definitions
+
+
+\bibliographystyle{amsalpha}
+\bibliography{biblio}
+
 
 \end{document} 

@@ -1,0 +1,59 @@
+% Activate the following line by filling in the right side. If for example the name of the root file is Main.tex, write
+% "...root = Main.tex" if the chapter file is in the same directory, and "...root = ../Main.tex" if the chapter is in a subdirectory.
+ 
+%!TEX root = mcnamara-tanaka.tex
+
+\section{Goals}
+In no particular order, but enumerated for sake of reference:
+\enum
+	\item (The category of implicit manifolds)
+		The pair $(X, \cA)$ of a Hausdorff $X$ with an implicit atlas $\cA$ (a la Pardon) is an object in some category. Define this category. Ideally, it should be a category enriched in Kan complexes.
+			\enum
+				\item
+					Part of this should involve streamlining the definition of $\cA$. Let's present it as categorically as possible.
+				\item
+					One should do this when the implicit atlases are {\em smooth}, too.
+				\item
+					So an ideal type of theorem would be something like:
+						\begin{theorem}
+						(After defining some category.) The category of implicit manifolds is enriched over Kan complexes. The category of smooth manifolds (in the usual sense) embeds fully and faithfully.
+						\end{theorem}
+			\enumd
+	\item (Comparing with Spivak)
+		We should construct a functor from Pardon's framework (which I called implicit manifolds above---we can change the name) to Spivak's. This is where a lot of the logical meat is. Put another way: {\em How does a choice of $\cA$ on $X$ define a derived scheme?}
+			\enum
+				\item
+					The first example of this to understand is for the zero locus of a section of a bundle. This is section~2.2.1 of~\cite{pardon}.
+				\item
+					An ideal type of theorem would be something like:
+						\begin{theorem}
+						There is a functor $F$ from implicit manifolds to derived manifolds. It is fully faithful on smooth manifolds (in the usual sense).
+						\end{theorem}
+					\hiro{However, I am not sure to what extent this functor should be fully faithful on all implicit manifolds. This of course depends on the choice of homs, and it's not obvious to me that maps defined to be compatible with implicit atlases will recover the whole homotopy type of the hom spaces for derived manifolds.}
+			\enumd
+	\item (The virtual fundamental cycle and cobordisms)
+		How should we think of the virtual fundamental cycle? Pardon presents it as an element of Cech cochains, but should it be thought of as an element of a cobordism group? See Remark~1.3.2 of~\cite{pardon}. I think Remark~1.3.3 is also helpful; but how is this an invariant of the derived manifold itself?
+			\enum
+				\item
+					I can't find where Pardon actually sets up a theory of cobordisms between implicit manifolds. It'd be nice to prove a statement like
+					\begin{theorem}
+					(After defining a notion of cobordism between implicit manifolds.) If $s_t$ is a homotopy between two sections $s_0, s_1$ of a vector bundle, then the implicit manifolds $(X_i, \cA_i)$ associated to the $s_i$ are cobordant. (i=0,1.)
+					\end{theorem}
+				\item
+					Then it would be nice to show that Borel-Moorse cochains on $X$ are actually just sections of some sort of stabilized ``normal bundle'' on $X$. (Roughly, there should be some notion of a normal bundle for an ``embedding'' of $X$ into $\RR^N$ for large $N$.) Then, the same way characteristic classes are preserved via cobordism, these cochains may be preserved under cobordism (however we define this), and we can try to show that the VFCs defined on $X_i$ are compatible.
+				\item
+					Finally, an ideal theorem would be to prove that 
+					\begin{theorem}
+						The functor $F$ from above preserves cobordisms. That is, $X_0 \sim X_1$ cobordant $\implies$ $F(X_0) \sim F(X_1)$, where $\sim$ is the cobordism relation. Further, $F$ also preserves normal bundle classes and sections thereof. (This last sentence is intentionally vague.)
+					\end{theorem}
+					See Section~6.2 of~\cite{spivak-thesis} and 3.1 of~\cite{spivak} for the derived manifolds definition of cobordism.
+			\enumd
+	\item (Examples)
+		We should write out the examples of Morse theory, and of holomorphic curves, as presented in~\cite{pardon}.
+	\item (Intersections of virtual fundamental cycles)
+		The Kunneth formula is much harder; I think we'll actually need to deal with derived smooth stacks to do that bit, because negative-dimensional things will show up.
+		
+\enumd
+
+
+

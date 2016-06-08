@@ -1,0 +1,24 @@
+\providecommand{\bysame}{\leavevmode\hbox to3em{\hrulefill}\thinspace}
+\providecommand{\MR}{\relax\ifhmode\unskip\space\fi MR }
+% \MRhref is called by the amsart/book/proc definition of \MR.
+\providecommand{\MRhref}[2]{%
+  \href{http://www.ams.org/mathscinet-getitem?mr=#1}{#2}
+}
+\providecommand{\href}[2]{#2}
+\begin{thebibliography}{Par16}
+
+\bibitem[Par16]{pardon}
+John Pardon, \emph{An algebraic approach to virtual fundamental cycles on
+  moduli spaces of pseudo-holomorphic curves}, Geom. Topol. \textbf{20} (2016),
+  no.~2, 779--1034. \MR{3493097}
+
+\bibitem[Spi07]{spivak-thesis}
+David~Isaac Spivak, \emph{Quasi-smooth derived manifolds}, ProQuest LLC, Ann
+  Arbor, MI, 2007, Thesis (Ph.D.)--University of California, Berkeley.
+  \MR{2710585}
+
+\bibitem[Spi10]{spivak}
+David~I. Spivak, \emph{Derived smooth manifolds}, Duke Math. J. \textbf{153}
+  (2010), no.~1, 55--128. \MR{2641940}
+
+\end{thebibliography}
