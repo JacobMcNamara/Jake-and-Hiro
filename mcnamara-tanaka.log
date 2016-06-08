@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  8 JUN 2016 12:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  8 JUN 2016 12:38
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -387,8 +387,8 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 \c@theorem=\count120
 \c@thm=\count121
 
-(./macros.tex) (./mcnamara-tanaka.aux (./goals.aux) (./derived-manifolds.aux)
-(./implicit-atlases.aux))
+(./macros.tex) (./mcnamara-tanaka.aux (./structure-sheaf.aux) (./goals.aux)
+(./derived-manifolds.aux) (./implicit-atlases.aux))
 \openout1 = `mcnamara-tanaka.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 34.
@@ -472,46 +472,59 @@ LaTeX Info: Redefining \nameref on input line 34.
  [1
 
 {/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+\openout2 = `structure-sheaf.aux'.
+
+ (./structure-sheaf.tex) [2
+
+]
 \openout2 = `goals.aux'.
 
- (./goals.tex [2
 
-]) [3]
+(./goals.tex [3
+
+
+]) [4]
 \openout2 = `derived-manifolds.aux'.
 
-
-(./derived-manifolds.tex) [4
+ (./derived-manifolds.tex) [5
 
 
 ]
 \openout2 = `implicit-atlases.aux'.
 
- (./implicit-atlases.tex) [5
+ (./implicit-atlases.tex)
+[6
 
+
+] (./mcnamara-tanaka.bbl)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 64.
+ [7
 
 ]
-(./mcnamara-tanaka.bbl)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 63.
- [6
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 64.
+ (./mcnamara-tanaka.aux (./structure-sheaf.aux)
+(./goals.aux) (./derived-manifolds.aux) (./implicit-atlases.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 64.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 64.
 
-]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 63.
- (./mcnamara-tanaka.aux (./goals.aux)
-(./derived-manifolds.aux) (./implicit-atlases.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 63.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 63.
-Package rerunfilecheck Info: File `mcnamara-tanaka.out' has not changed.
-(rerunfilecheck)             Checksum: 4C8A505A2D85330C6EC6DE93965A307B;194.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 63.
+
+Package rerunfilecheck Warning: File `mcnamara-tanaka.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `mcnamara-tanaka.out':
+(rerunfilecheck)             Before: 3853DFB04AEDD8E6899ECE238914B506;272
+(rerunfilecheck)             After:  F27C96D3F13A9192024658D4E8A80ABC;248.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 64.
  ) 
 Here is how much of TeX's memory you used:
- 9325 strings out of 493089
- 125514 string characters out of 6134842
- 266696 words of memory out of 5000000
- 12602 multiletter control sequences out of 15000+600000
+ 9336 strings out of 493089
+ 125693 string characters out of 6134842
+ 267049 words of memory out of 5000000
+ 12604 multiletter control sequences out of 15000+600000
  15490 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 29i,6n,30p,3299b,447s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 29i,6n,30p,3299b,491s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><
@@ -522,10 +535,10 @@ ocal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/loca
 l/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local
 /texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/
 texlive/2015/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on mcnamara-tanaka.pdf (6 pages, 116693 bytes).
+Output written on mcnamara-tanaka.pdf (7 pages, 118975 bytes).
 PDF statistics:
- 130 PDF objects out of 1000 (max. 8388607)
- 110 compressed objects within 2 object streams
- 35 named destinations out of 1000 (max. 500000)
- 33 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 143 PDF objects out of 1000 (max. 8388607)
+ 122 compressed objects within 2 object streams
+ 37 named destinations out of 1000 (max. 500000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
