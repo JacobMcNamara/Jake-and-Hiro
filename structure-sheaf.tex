@@ -8,17 +8,28 @@ we would like to have that the $C^\oo$-ring $\cO(X)$ is the homotopy tensor prod
 
 \subsection{Simplicial sheaf of $n$-thickenings}
 
-\begin{defn}
-Let $X$ be a Hausdorff space. An {\bf $n$-thickening} is the data of a smooth manifold $Y$, together with vector spaces $E_1, \dots, E_n$ and maps $\sigma_i: Y \to E_i$, and a homeomorphism $\psi: X \to \sigma^{-1}(0)$, where $\sigma = \sigma_1 \oplus \cdots \oplus \sigma_n$.
+\begin{defn}\label{n-thickening}
+Let $X$ be a Hausdorff space. An {\bf $n$-thickening} is the data of a smooth manifold $Y$, together with vector spaces $E_0, \dots, E_n$ and maps $\sigma_i: Y \to E_i$, and a homeomorphism $\psi: X \to \sigma^{-1}(0)$ (usually suppressed), where $\sigma = \sigma_0 \oplus \cdots \oplus \sigma_n$. We also demand a transversality requirement for $n \geq 1$. \jake{[Spell this out... it should be that all the simultaneous zero sets except the zero set of all the $\sigma_i$ at once are smooth manifolds cut out transversely.]}
+
+Two $n$-thickenings $(Y^k, (E_i^k, \sigma_i^k))$, for $k = 1, 2$, are declared equivalent if they are isomorphic when restricted to open neighborhoods $X \subset U^k \subset Y^k$ (thus $n$-thickenings only depend on the germs of the functions $\sigma_i$ around $X$).
 \end{defn}
 
 Now, suppose $(X, \cA)$ is an implicit manifold. \jake{[Details here to be worked out and clarified. In particular, need to explain what ``compatible with $\cA$" means, as well as addressing the fact that the zero sets $f_i^{-1}(0)$ won't be smooth manifolds. Proving the simplicial identities would be good too.]} There is a simplicial (pre?)sheaf $\cT \cH_\cA^\bullet$ on $X$, given by
 \[ \cT \cH_\cA^n(U) = \left\{ \text{$n$-thickenings of $U$ compatible with $\cA$} \right\}. \]
 The face maps are given by
-\[ d_i : \left( Y, (E_1, \sigma_1, \dots, E_n, \sigma_n) \right) \mapsto \left( \sigma_i^{-1}(0), (E_1, \sigma_1, \dots, \wh E_i, \wh \sigma_i, \dots , E_n, \sigma_n) \right), \]
+\[ d_i : \left( Y, (E_0, \sigma_0, \dots, E_n, \sigma_n) \right) \mapsto \left( \sigma_i^{-1}(0), (E_0, \sigma_0, \dots, \wh E_i, \wh \sigma_i, \dots , E_n, \sigma_n) \right), \]
 and the degeneracies are given by
-\[ s_i : \left( Y, (E_1, \sigma_1, \dots, E_n, \sigma_n) \right) \mapsto \left( Y \times E_i, (E_1, \sigma_1, \dots, E_i, \sigma_i \circ \pi_1 - \pi_2, E_i, \pi_2, \dots, E_n, \sigma_n) \right). \]
+\[ s_i : \left( Y, (E_0, \sigma_0, \dots, E_n, \sigma_n) \right) \mapsto \left( Y \times E_i, (E_0, \sigma_0, \dots, E_i, \sigma_i \circ \pi_1 - \pi_2, E_i, \pi_2, \dots, E_n, \sigma_n) \right). \]
+
+\begin{prop}\label{kan-complexes}
+The simplicial set $\cT \cH_\cA^\bullet(U)$ is a Kan complex, and is in fact contractible.
+\end{prop}
+
 
 We have the following candidate for the structure sheaf of $(X, \cA)$ as a derived manifold. Consider the simplicial sheaf $\cO_X^\bullet$ on $X$, given by
 \[ \cO_X^n(U) = \coprod_{(Y, (E_i, \sigma_i)) \in \cT \cH_\cA^n(U)} C^\oo(Y). \]
 \jake{[A slight modification of this should also give a notion of morphism spaces for implicit manifolds. For $X'$ another implicit manifold, simply replace $C^\oo(Y)$ above with $\Hom(Y, X')$; because $Y$ is a manifold, it already knows how to map into what is morally a limit of smooth manifolds.]}
+
+\begin{speculation}
+If $X$ is a smooth manifold, then $\cO_X^\bullet(X)$ is equivalent to the discrete simplicial set $C^\oo(X)$. Further, if $X$ is the intersection of the origin in $\RR$ with itself, then $\pi_0(\cO_X^\bullet(X)) \cong \RR$ and $\pi_1(\cO_X^\bullet(X)) \cong \RR$. To see this last part, consider smooth functions on $\RR^n$ that vanish on the coordinate hyperplanes, and see how strong a zero they must have when restricted to another generic plane.
+\end{speculation}

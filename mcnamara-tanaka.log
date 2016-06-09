@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  8 JUN 2016 16:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  9 JUN 2016 14:08
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -485,14 +485,14 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 9.
 
 
-Overfull \hbox (20.17865pt too wide) detected at line 20
+Overfull \hbox (20.17865pt too wide) detected at line 22
 \OML/cmm/m/it/12 s[] \OT1/cmr/m/n/12 : [] \OMS/cmsy/m/n/12 7! [] \OML/cmm/m/it/
 12 :
  []
 
-) [2
+[2
 
-] [3]
+]) [3]
 \openout2 = `goals.aux'.
 
  (./goals.tex [4
@@ -524,13 +524,17 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 67.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 67.
 Package rerunfilecheck Info: File `mcnamara-tanaka.out' has not changed.
 (rerunfilecheck)             Checksum: E79F3E8058BCE94EE167E9E94158A012;330.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 67.
  ) 
 Here is how much of TeX's memory you used:
- 9373 strings out of 493089
- 125965 string characters out of 6134842
+ 9377 strings out of 493089
+ 126020 string characters out of 6134842
  268124 words of memory out of 5000000
- 12636 multiletter control sequences out of 15000+600000
+ 12638 multiletter control sequences out of 15000+600000
  16606 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  29i,13n,33p,3299b,491s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -550,10 +554,10 @@ e/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive
 /2015/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/tex
 live/2015/texmf-dist/fonts/type1/public/xypic/xyatip10.pfb></usr/local/texlive/
 2015/texmf-dist/fonts/type1/public/xypic/xybtip10.pfb>
-Output written on mcnamara-tanaka.pdf (8 pages, 164867 bytes).
+Output written on mcnamara-tanaka.pdf (8 pages, 167610 bytes).
 PDF statistics:
- 176 PDF objects out of 1000 (max. 8388607)
- 148 compressed objects within 2 object streams
- 40 named destinations out of 1000 (max. 500000)
+ 178 PDF objects out of 1000 (max. 8388607)
+ 150 compressed objects within 2 object streams
+ 42 named destinations out of 1000 (max. 500000)
  49 words of extra memory for PDF output out of 10000 (max. 10000000)
 
