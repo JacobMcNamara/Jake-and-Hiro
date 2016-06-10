@@ -6,13 +6,18 @@ Consider the simplest case of an implicit atlas $\cA$ with a single global chart
 \[ \xymatrix{X \ar[r] \ar[d] & Y \ar[d]^-{s} \\ {*} \ar[r]_-{0} & E}\]
 we would like to have that the $C^\oo$-ring $\cO(X)$ is the homotopy tensor product, $\cO(X) = \RR \tensor_{\cO(E)} \cO(Y)$.
 
+\hiro{Great simple example, and nice motivation. This could be cast as "Example x.y.z" after we finish writing a definition we know to be correct.}
+
 \subsection{Simplicial sheaf of $n$-thickenings}
 
 \begin{defn}\label{n-thickening}
 Let $X$ be a Hausdorff space. An {\bf $n$-thickening} is the data of a smooth manifold $Y$, together with vector spaces $E_0, \dots, E_n$ and maps $\sigma_i: Y \to E_i$, and a homeomorphism $\psi: X \to \sigma^{-1}(0)$ (usually suppressed), where $\sigma = \sigma_0 \oplus \cdots \oplus \sigma_n$. We also demand a transversality requirement for $n \geq 1$. \jake{[Spell this out... it should be that all the simultaneous zero sets except the zero set of all the $\sigma_i$ at once are smooth manifolds cut out transversely.]}
+\hiro{We certainly should spell this out; your transversality condition sounds like it only kicks in for $k$-simplices with $k \geq 2$.}
 
 Two $n$-thickenings $(Y^k, (E_i^k, \sigma_i^k))$, for $k = 1, 2$, are declared equivalent if they are isomorphic when restricted to open neighborhoods $X \subset U^k \subset Y^k$ (thus $n$-thickenings only depend on the germs of the functions $\sigma_i$ around $X$).
+\hiro{It might be nicer to talk about refinements. There's a filtered structure on these $n$-thickenings given by refinements---a refinement would be an (open?) embedding of the manifolds, together with embeddings of vector spaces that are all compatible with the $s_i$. There's probably a clean categorical way to say this---there's a category of $n$-thickenings that has a forgetful functor to $\Delta^{\op}$.}
 \end{defn}
+
 
 Now, suppose $(X, \cA)$ is an implicit manifold. \jake{[Details here to be worked out and clarified. In particular, need to explain what ``compatible with $\cA$" means, as well as addressing the fact that the zero sets $f_i^{-1}(0)$ won't be smooth manifolds. Proving the simplicial identities would be good too.]} There is a simplicial (pre?)sheaf $\cT \cH_\cA^\bullet$ on $X$, given by
 \[ \cT \cH_\cA^n(U) = \left\{ \text{$n$-thickenings of $U$ compatible with $\cA$} \right\}. \]
@@ -29,6 +34,8 @@ The simplicial set $\cT \cH_\cA^\bullet(U)$ is a Kan complex, and is in fact con
 We have the following candidate for the structure sheaf of $(X, \cA)$ as a derived manifold. Consider the simplicial sheaf $\cO_X^\bullet$ on $X$, given by
 \[ \cO_X^n(U) = \coprod_{(Y, (E_i, \sigma_i)) \in \cT \cH_\cA^n(U)} C^\oo(Y). \]
 \jake{[A slight modification of this should also give a notion of morphism spaces for implicit manifolds. For $X'$ another implicit manifold, simply replace $C^\oo(Y)$ above with $\Hom(Y, X')$; because $Y$ is a manifold, it already knows how to map into what is morally a limit of smooth manifolds.]}
+
+\hiro{I think this is a beautiful candidate. Do you want to try and work out the speculation? Spivak at some point must do something very similar in his thesis.}
 
 \begin{speculation}
 If $X$ is a smooth manifold, then $\cO_X^\bullet(X)$ is equivalent to the discrete simplicial set $C^\oo(X)$. Further, if $X$ is the intersection of the origin in $\RR$ with itself, then $\pi_0(\cO_X^\bullet(X)) \cong \RR$ and $\pi_1(\cO_X^\bullet(X)) \cong \RR$. To see this last part, consider smooth functions on $\RR^n$ that vanish on the coordinate hyperplanes, and see how strong a zero they must have when restricted to another generic plane.

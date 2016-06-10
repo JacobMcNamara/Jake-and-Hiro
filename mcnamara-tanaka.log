@@ -1,6 +1,6 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  9 JUN 2016 14:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  10 JUN 2016 05:36
 entering extended mode
- restricted \write18 enabled.
+ \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
 **mcnamara-tanaka.tex
@@ -478,14 +478,14 @@ LaTeX Info: Redefining \nameref on input line 37.
 2x2 174>
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 9.
+(hyperref)                removing `math shift' on input line 11.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 9.
+(hyperref)                removing `math shift' on input line 11.
 
 
-Overfull \hbox (20.17865pt too wide) detected at line 22
+Overfull \hbox (20.17865pt too wide) detected at line 24
 \OML/cmm/m/it/12 s[] \OT1/cmr/m/n/12 : [] \OMS/cmsy/m/n/12 7! [] \OML/cmm/m/it/
 12 :
  []
@@ -524,16 +524,12 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 67.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 67.
 Package rerunfilecheck Info: File `mcnamara-tanaka.out' has not changed.
 (rerunfilecheck)             Checksum: E79F3E8058BCE94EE167E9E94158A012;330.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 67.
  ) 
 Here is how much of TeX's memory you used:
  9377 strings out of 493089
  126020 string characters out of 6134842
- 268124 words of memory out of 5000000
+ 268185 words of memory out of 5000000
  12638 multiletter control sequences out of 15000+600000
  16606 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -554,7 +550,7 @@ e/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive
 /2015/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/tex
 live/2015/texmf-dist/fonts/type1/public/xypic/xyatip10.pfb></usr/local/texlive/
 2015/texmf-dist/fonts/type1/public/xypic/xybtip10.pfb>
-Output written on mcnamara-tanaka.pdf (8 pages, 167610 bytes).
+Output written on mcnamara-tanaka.pdf (8 pages, 167793 bytes).
 PDF statistics:
  178 PDF objects out of 1000 (max. 8388607)
  150 compressed objects within 2 object streams
