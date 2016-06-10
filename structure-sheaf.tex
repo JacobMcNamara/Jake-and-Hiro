@@ -22,13 +22,27 @@ and the degeneracies are given by
 \[ s_i : \left( Y, (E_0, \sigma_0, \dots, E_n, \sigma_n) \right) \mapsto \left( Y \times E_i, (E_0, \sigma_0, \dots, E_i, \sigma_i \circ \pi_1 - \pi_2, E_i, \pi_2, \dots, E_n, \sigma_n) \right). \]
 
 \begin{prop}\label{kan-complexes}
-The simplicial set $\cT \cH_\cA^\bullet(U)$ is a Kan complex, and is in fact contractible.
+The simplicial set $\cT \cH_\cA^\bullet(U)$ is a Kan complex. \jake{[I believe it is actually contractible, but I would have to use more detail about what ``compatible with $\cA$" means to prove this]}.
 \end{prop}
+
+\begin{proof}
+By symmetry in the definition of $\cT \cH_\cA^\bullet(U)$, it suffices to prove the claim for a $0$-horn, given by the $n$-thickenings
+\[ (Y^k, (E_0, \sigma_0^k, \dots, \wh E_k, \wh \sigma_k^k, \dots, E_n, \sigma_n^k)), \]
+for $1 \leq k \leq n$. Define
+\[ Z^k = (\sigma_1^k)^{-1}(0) \cap \dots \cap \wh {(\sigma_k^k)^{-1}(0)} \cap \dots \cap (\sigma_n^k)^{-1}(0) \subset Y^k. \]
+We have that $Z^k$ is a smooth submanifold of $Y^k$, and further we have $Z^1 \cong \dots \cong Z^n$ because the given data is a horn; we now suppress these isomorphisms and write $Z$ for this space. Now, define
+\[ W^{k, j} = (\sigma_1^k)^{-1}(0) \cap \dots \cap \dots \cap \wh {(\sigma_j^k)^{-1}(0)} \cap \dots \cap \wh {(\sigma_k^k)^{-1}(0)} \cap \dots \cap (\sigma_n^k)^{-1}(0) \subset Y^k, \]
+for $1 \leq j \neq k \leq n$. We have that $W^{k, j}$ is a smooth submanifold of $Y^k$, and further we have that $W^{1, j} \cong \dots \cong \wh {W^{j, j}} \cong \dots W^{n, j}$, which we will suppress and denote by $W^j$.
+
+By the tubular neighborhood theorem and the fact that we are identifying $n$-thickenings which agree in a neighborhood of $U$, we may assume WLOG, but not canonically, that $W^j$ has the structure of a smooth vector bundle over $Z$, and further that
+\[ Y^k = W^1 \oplus_Z \dots \oplus_Z \wh W^k \oplus_Z \dots \oplus_Z W^n. \]
+But we may then define an $(n + 1)$-thickening that fills the horn, namely
+\[ \left(  \right) \]
+\end{proof}
 
 
 We have the following candidate for the structure sheaf of $(X, \cA)$ as a derived manifold. Consider the simplicial sheaf $\cO_X^\bullet$ on $X$, given by
 \[ \cO_X^n(U) = \coprod_{(Y, (E_i, \sigma_i)) \in \cT \cH_\cA^n(U)} C^\oo(Y). \]
-\jake{[A slight modification of this should also give a notion of morphism spaces for implicit manifolds. For $X'$ another implicit manifold, simply replace $C^\oo(Y)$ above with $\Hom(Y, X')$; because $Y$ is a manifold, it already knows how to map into what is morally a limit of smooth manifolds.]}
 
 \begin{speculation}
 If $X$ is a smooth manifold, then $\cO_X^\bullet(X)$ is equivalent to the discrete simplicial set $C^\oo(X)$. Further, if $X$ is the intersection of the origin in $\RR$ with itself, then $\pi_0(\cO_X^\bullet(X)) \cong \RR$ and $\pi_1(\cO_X^\bullet(X)) \cong \RR$. To see this last part, consider smooth functions on $\RR^n$ that vanish on the coordinate hyperplanes, and see how strong a zero they must have when restricted to another generic plane.
