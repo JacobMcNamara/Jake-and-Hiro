@@ -26,7 +26,7 @@ The face maps are given by
 and the degeneracies are given by
 \[ s_i : \left( Y, (E_0, \sigma_0, \dots, E_n, \sigma_n) \right) \mapsto \left( Y \times E_i, (E_0, \sigma_0, \dots, E_i, \sigma_i \circ \pi_1 - \pi_2, E_i, \pi_2, \dots, E_n, \sigma_n) \right). \]
 
-\begin{prop}\label{kan-complexes}
+\begin{prop}\label{thickenings-are-kan-complexes}
 The simplicial set $\cT \cH_\cA^\bullet(U)$ is a Kan complex. \jake{[I believe it is actually contractible, but I would have to use more detail about what ``compatible with $\cA$" means to prove this]}.
 \end{prop}
 
@@ -45,6 +45,13 @@ But we may then define an $(n + 1)$-thickening that fills the horn, namely
 \[ \left(  \right) \]
 \end{proof}
 
+\begin{prop}\label{thickenings-are-discrete}
+The simplicial set $\cT \cH^\bullet(U)$ is equivalent to a discrete simplicial set.
+\end{prop}
+
+\begin{definition}\label{implicit-manifold}
+An {\bf implicit manifold} is a compact Hausdorff space $X$ together with a choice of global section $\cT \cH^\bullet(X)$. \jake{This should agree with Pardon's definition of an implicit atlas.}
+\end{definition}
 
 We have the following candidate for the structure sheaf of $(X, \cA)$ as a derived manifold. Consider the simplicial sheaf $\cO_X^\bullet$ on $X$, given by
 \[ \cO_X^n(U) = \coprod_{(Y, (E_i, \sigma_i)) \in \cT \cH_\cA^n(U)} C^\oo(Y). \]
