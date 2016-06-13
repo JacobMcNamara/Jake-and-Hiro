@@ -5,4 +5,217 @@
 \section{Derived manifolds}
 \hiro{Let's keep a running document here of what we're learning about Spivak's work.}
 
-Here we summarize the portions of~\cite{spivak} and~\cite{spivak-thesis} salient to our work.
+Here we summarize the portions of~\cite{spivak} and~\cite{spivak-thesis} salient to our work. The notation follows~\cite{spivak-thesis} closely, and nothing original is in this section of our paper. 
+
+
+\subsection{Local models and $C^\infty$ rings}
+\hiro{I might eventually remove this section; it's a non-homotopical version of the ``smooth rings'' we review in the next section.}
+
+Let $\cR$ be a small Grothendieck site. 
+
+\enum
+	\item
+		Let $U: \cR \to \Top$ be a morphism of Grothendieck sites. We say $U$ is a basis for its image if and only if, for every $R \in \cR$ and every covering of $U(R)$ in $\Top$, there is a refinement of the covering by open sets in the image of $U$. 
+	\item
+		Given a collection of diagrams, $\cL = \{ L: \cC_L \to \cR\}$, we say a full subcategory $\cS \subset \cR$ is closed under $\cL$-limits if any $L$ factoring through $\cS$ has a limit in $\cS$. 
+	\item
+		$\cS$ is closed under gluing if---whenever an open cover of $T \in \cR$ is fully contained in $\cS$, then $T$ is in $\cS$ as well.
+	\item
+		We say a collection of objects $G \subset \ob \cR$ generates $\cS$ if $\cS$ is the smallest full subcategory of $\cR$ containing $G$, and closed under $\cL$-limits and gluing.
+\enumd
+
+\begin{example}
+Let $\cR = \cE$ denote the category of finite-dimensional Euclidean spaces. We let its morphisms be all smooth maps. The forgetful map $U: \cE \to \Top$ is a basis for its image. 
+
+We let $\cL$ denote the collection of all functors from a finite, discrete category to $\cE$. (I.e., any functor $I \to \cE$ where $I$ is a possibly empty finite set.) 
+
+Then $G = \{\RR\}$ generates $\cE$ under $\cL$-limits. We refer to
+	\eqnn
+		(\cE, U, \cL, \RR)
+	\eqnd
+as the Euclidean category of local models. We call $\RR$ the affine line for $\cE$.
+\end{example}
+
+Note that any functor $\cR \to \sets$ preserving $\cL$-limits is determined by what it does on any full subcategory containing a $G$ which generates $\cR$. In particular, any functor $\cE \to \sets$ is determined by what it does to $\RR$ and to its smooth endomorphisms.
+
+\begin{defn}
+A $C^\infty$-ring is a covariant functor
+	\eqnn
+	F: \cE \to \sets
+	\eqnd
+preserving $\cL$-limits. We refer to $|F| := F(\RR)$ as the underlying set of $F$. 
+\end{defn}
+
+As an example, the corepresentable functor $\hom( \RR^n, -) : \cE \to \sets$ is a $C^\infty$ ring. Its value on $\RR$ is the set of smooth functions on $\RR^n$.
+
+\begin{remark}
+Since $\RR$ is a commutative ring object in the category $\cE$, $F$ induces a commutative ring structure on $|F|$ by virtue of preserving finite limits.
+\end{remark}
+
+\begin{remark}
+Other geometries, notably the geometry of affine $\ZZ$-schemes, also fit into this framework of local models.
+\end{remark}
+
+
+\subsection{Smooth rings}
+One of the most powerful principles in algebraic geometry is that affine schemes are the same thing as commutative rings. This is somewhat tautological, but is not so tautological that its transportation into the world of smooth geometry is self-evident. (For instance, it takes care to define the appropriate tensor product for which $C^\infty(M) \tensor C^\infty (N) \cong C^\infty( M \times N)$.) At the same time, we also seek a notion of ``rings'' which is sufficiently homotopical. So the $C^\infty$ rings described in the previous sections should be thought of as the tip of a homotopical iceberg, in a way similar to how cdgas are a homotopical iceberg whose tip comprises the usual notion of commutative rings. 
+
+Let $\fun(\man,\ssets)$ be the category of all functors from the category of manifolds to the category of simplicial sets. We call $F: \man \to \ssets$ discrete if $F(M)$ if a discrete simplicial set for all manifolds $M$.
+
+Here are some facts we will take for granted:
+\enum
+	\item 
+		$\fun(\man,\ssets)$ has an injective model structure. Its weak equivalences are object wise---this means $F \simeq G$ if and only if $F(M) \simeq G(M)$ for every manifold $M$. Its cofibrations are object-wise as well, meaning $F \to G$ is a cofibration if and only if $F(M) \to G(M)$ is a cofibration of simplicial sets for each $M$. This model structure is proper, and cofibrantly generated.
+	\item
+		Let $S$ be a simplicial set. We let $\un{S}: \man \to \ssets$ denote the constant functor. This makes $\fun(\man,\ssets)$ tensored over simplicial sets.
+	\item
+		All discrete $F$ are fibrant. In particular, if $M$ is a manifold, the functor
+			\eqnn
+			H_M := \man(M, -)
+			\eqnd
+		is fibrant.
+\enumd
+
+\begin{defn}
+The model category of smooth rings is the localization of $\fun(\man,\ssets)$ along $\Psi$.
+\end{defn}
+
+We define $\Psi$ now.
+Consider a diagram
+	\eqnn
+		\xymatrix{
+			 & P \ar[d]^a \\
+			M \ar[r]^s & N
+		}
+	\eqnd
+where $s$ is a submersion. Then the pullback $Q \cong M \times_N P$ exists in the category of smooth manifolds. On the other hand, one could also take the homotopy pushout
+	\eqnn
+		\xymatrix{
+			H_N \ar[r]^{s^*} \ar[d]_{a^*} & H_M \ar[d] \\
+			H_P \ar[r] & G
+		}
+	\eqnd
+in the model category $\fun(\man,\ssets)$. We let
+	\eqnn
+		\psi_{s,a} : G \to H_Q
+	\eqnd 
+denote the induced map. Note that localizing with respect to these $\psi_{s,a}$ means that the assignment "corepresenting functor" would preserve the one good operation there is in smooth manifolds: pulling back along submersions. That is, pullbacks obtained from submersions will be sent to homotopy pushouts.
+
+Finally, note that the 0-manifold $pt \cong \RR^0$ is terminal in $\man$. We'd like this to be reflect in the category of smooth rings. (This reflects as principle from algebraic geometry: if $\spec k$ is terminal in $k$-schemes, we'd like the structure ring $k$ to be initial in $k$-algebras.) However, in $\fun(\man,\ssets)$, the initial object is not $H_{pt}$, but rather the functor sending $M \mapsto \emptyset$. So we would like to further localize with respect to the unique map
+	\eqnn
+	 (M \mapsto \emptyset) \to H_{pt}.
+	\eqnd 
+
+\begin{defn}
+We let $\Psi$ denote the collection of all morphisms of the form $\psi_{s,a}$ (for $s$ a submersion and $a$ a smooth map) together with the unique map $(M \mapsto \emptyset) \to H_{pt}$.
+\end{defn}
+
+\hiro{
+It would be nice to just think of this as an $\infty$-category from the outset, without having to resort to model categories, and then defining an $\infty$-category. But so it is.
+}
+
+
+\begin{example}[Example 2.1.10 in ~\cite{spivak-thesis}.]
+If $M, N$ are smooth manifolds, the object-wise coproduct $H_M \coprod H_N$ is in $\fun(\man,\ssets)$. However, it is not a fibrant object in the model category of smooth rings. For instance, apply it to the pullback diagram realizing $M \times_{pt} N \cong M \times N$. However, the map
+	\eqnn
+		H_M \coprod H_N \to H_{M \times N}
+	\eqnd
+is a fibrant replacement map. 
+\end{example}
+
+\begin{example}[The fat point, 2.1.13 in~\cite{spivak-thesis}.]
+Let us compute the homotopy pushout
+	\eqnn
+		\xymatrix{
+		H_\RR \ar[r] \ar[d] & H_{pt} \ar[d] \\
+		H_{pt} \ar[r] & G
+		}
+	\eqnd
+where the arrows $H_\RR \to H_{pt}$ are induced by the inclusion of the origin in $\RR$. As usual, to compute this homotopy pushout, we just replace either the top or lefthand arrow by a cofibration. (The localization is left proper because $\fun(\man,\ssets)$ is; see~\cite{hirschhorn} 4.1.1.) Consider the composite map
+	\eqnn
+		g: \RR \to pt \xra{0} \RR.
+	\eqnd
+Then we have a functor $C: \man \to \ssets$ whose only non-degenerate simplices are in dimensions 1 and 0, given by
+	\eqnn
+	d_0, d_1 : H_\RR \to H_\RR
+	\eqnd
+where $d_0$ is the identity and $d_1$ is $g^*$. Obviously, the inclusion $H_\RR \to C$ is a cofibration because it is a levelwise injection for any manifold $M$. One can check straightforwardly that $H_{pt}(M) \simeq C(M)$ for every manifold $M$. Hence the homotopy pushout $G$ can be computed as the honest pushout of the diagram
+	\eqnn
+		\xymatrix{
+		H_\RR \ar[r] \ar[d] & C \ar[d] \\
+		H_{pt} \ar[r] & G.
+		}
+	\eqnd
+Thus $G$ is given by the functor $\man \to \ssets$ whose non-degenerate bit we represent by
+	\eqnn
+	d_0, d_1: H_\RR \to H_{pt}.
+	\eqnd
+Here, both $d_i$ are induced by the inclusion $0: pt \to \RR$. 
+
+\end{example}
+
+
+
+\begin{remark}
+We remind the reader of what localization of $\cC$ to $\cC[\Psi^{-1}]$ does, at least at a superficial level. Heuristically, it turns any morphism in $\Psi \subset \cC$ into an equivalence in the localization. In terms of model categories:
+\enum
+	\item
+		$\cC$ and $\cC[\Psi^{-1}]$  are the same simplicial category.
+	\item
+		The cofibrations of $\cC[\Psi^{-1}]$ are the cofibrations of $\cC$.
+	\item
+		A fibrant object $X$ of $\cC[\Psi^{-1}]$ is one which is both fibrant in $\cC$, and $\Psi$-local. That is, for any $\psi : A \to B \in \Psi$, the map
+			\eqnn
+			\map(B, X) \to \map(A,X)
+			\eqnd
+		is a weak equivalence.
+	\item
+		The weak equivalences in $\cC[\Psi^{-1}]$ are those $f: X \to Y$ such that 
+			\eqnn
+			\map(Y,-) \to \map(X,-)
+			\eqnd
+		is a weak equivalence whenever $-$ is fibrant in $\cC[\Psi^{-1}]$.
+\enumd
+\end{remark}
+
+
+\subsection{Derived manifolds}
+Let $X$ be a topological space. Let $\cF$ be a sheaf of $C^\infty$ rings. This means that $\cF$ is a contravariant functor from $\open(X)$ to $\fun(\man,\ssets)$, satisfying the following property: 
+\hiro{Continue here.}
+
+
+We say that $\cF$ is local if, for every open cover $\{U_\alpha$ of $M$, the natural map of sheaves of sets
+	\eqnn
+		\pi_0 
+		\left(
+			\coprod_\alpha \cF(-,M_\alpha) 
+		\right)
+		\to
+		\pi_0 \cF(-,M)
+	\eqnd
+is a surjection. If $\cF$ is local, we say that the pair $(X,\cF)$ is a local smooth-ringed space.
+
+We will show how to compute homotopy pullbacks of $C^\infty$-ringed spaces momentarily. But for now:
+
+\begin{defn}
+Let $f: \RR^n \to \RR^m$ be a smooth map. Then the $C^\infty$-ringed space given by the homotopy fiber product
+	\eqnn
+	\xymatrix{
+		\cU \ar[r] \ar[d] & \RR^0 \ar[d]_0 \\
+		\RR^n \ar[r]^f & \RR^m
+	}
+	\eqnd
+which we write $\cU = (U, \cO_U)$, is called a principal derived manifold. Any Hausdorff smooth-ringed space $(X,\cO_X)$ is called a derived manifold if it can be covered by countably many principal derived manifolds.
+\end{defn}
+
+In other words, derived manifolds are locally modeled on zero locuses of functions. The salient point here is that the homotopy fiber product is what produces a robust interpretation of the zero locus---one that is independent of perturbations, and which can shrug off non-transversality.
+
+
+
+
+\subsection{Simplicial commutative algebras}
+\hiro{Section 3.5 of~\cite{spivak-thesis}.}
+
+Smooth-ringed spaces define derived manifolds, but they rarely allow us to compute. Thankfully, replacing a smooth ring with its underlying simplicial commutative $\RR$-algebra preserves many homotopy colimits.
+
+
