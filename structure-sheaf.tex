@@ -18,13 +18,17 @@ Two $n$-thickenings $(Y^k, (E_i^k, \sigma_i^k))$, for $k = 1, 2$, are declared e
 \hiro{It might be nicer to talk about refinements. There's a filtered structure on these $n$-thickenings given by refinements---a refinement would be an (open?) embedding of the manifolds, together with embeddings of vector spaces that are all compatible with the $s_i$. There's probably a clean categorical way to say this---there's a category of $n$-thickenings that has a forgetful functor to $\Delta^{\op}$.}
 \end{defn}
 
+\jake{[Details here to be worked out and clarified. In particular, need to explain what ``compatible with $\cA$" means, as well as addressing the fact that the zero sets $f_i^{-1}(0)$ won't be smooth manifolds. Proving the simplicial identities would be good too.]}
 
-Now, suppose $(X, \cA)$ is an implicit manifold. \jake{[Details here to be worked out and clarified. In particular, need to explain what ``compatible with $\cA$" means, as well as addressing the fact that the zero sets $f_i^{-1}(0)$ won't be smooth manifolds. Proving the simplicial identities would be good too.]} There is a simplicial (pre?)sheaf $\cT \cH_\cA^\bullet$ on $X$, given by
-\[ \cT \cH_\cA^n(U) = \left\{ \text{$n$-thickenings of $U$ compatible with $\cA$} \right\}. \]
+Let $X$ be a Hausdorff space. There is a simplicial (pre?)sheaf $\cT \cH_X^\bullet$ on $X$, called the {\bf thickening sheaf} of $X$, given on an open $U \subset X$ by
+\[ \cT \cH_X^n(U) = \left\{ \text{$n$-thickenings of $U$} \right\}. \]
 The face maps are given by
 \[ d_i : \left( Y, (E_0, \sigma_0; \dots; E_n, \sigma_n) \right) \mapsto \left( \sigma_i^{-1}(0), (E_0, \sigma_0; \dots; \wh E_i; \wh \sigma_i, \dots ; E_n, \sigma_n) \right), \]
 and the degeneracies are given by
 \[ s_i : \left( Y, (E_0, \sigma_0; \dots; E_n, \sigma_n) \right) \mapsto \left( Y \times E_i, (E_0, \sigma_0; \dots; E_i, \sigma_i \circ \pi_1 - \pi_2; E_i, \pi_2; \dots; E_n, \sigma_n) \right). \]
+Finally, if $V \subset U$ is open, then the restriction map is given by
+\[ r_{U, V}: \left( Y, (E_0, \sigma_0; \dots; E_n, \sigma_n) \right) \mapsto \left( W, (E_0, \rest{\sigma_0}{W}; \dots; E_n, \rest{\sigma_n}{W}) \right), \]
+where $W \subset Y$ is any open subset with $W \cap U = V$. Any two choices of such a $W$ are equivalent, since we are working locally around $X$.
 
 \begin{prop}\label{thickenings-are-kan-complexes}
 The simplicial set $\cT \cH^\bullet(X)$ is a Kan complex.
@@ -59,7 +63,7 @@ The simplicial set $\cT \cH^\bullet(U)$ is equivalent to a discrete simplicial s
 \end{proof}
 
 \begin{definition}\label{implicit-manifold}
-An {\bf implicit manifold} is a compact Hausdorff space $X$ together with a choice of global section $\cT \cH^\bullet(X)$. \jake{This should agree with Pardon's definition of an implicit atlas.}
+An {\bf implicit manifold} is a compact Hausdorff space $X$ together with a choice of global section of $\cT \cH^\bullet(X)$. \jake{This should agree with Pardon's definition of an implicit atlas.}
 \end{definition}
 
 We have the following candidate for the structure sheaf of $(X, \cA)$ as a derived manifold. Consider the simplicial sheaf $\cO_X^\bullet$ on $X$, given by
