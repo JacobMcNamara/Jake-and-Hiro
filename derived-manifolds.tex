@@ -99,9 +99,9 @@ in the model category $\fun(\man,\ssets)$. We let
 	\eqnn
 		\psi_{s,a} : G \to H_Q
 	\eqnd 
-denote the induced map. Note that localizing with respect to these $\psi_{s,a}$ means that the assignment "corepresenting functor" would preserve the one good operation there is in smooth manifolds: pulling back along submersions. That is, pullbacks obtained from submersions will be sent to homotopy pushouts.
+denote the induced map. Note that localizing with respect to these $\psi_{s,a}$ means that the assignment ``corepresenting functor" would preserve the one good operation there is in smooth manifolds: pulling back along submersions. That is, pullbacks obtained from submersions will be sent to homotopy pushouts.
 
-Finally, note that the 0-manifold $pt \cong \RR^0$ is terminal in $\man$. We'd like this to be reflect in the category of smooth rings. (This reflects as principle from algebraic geometry: if $\spec k$ is terminal in $k$-schemes, we'd like the structure ring $k$ to be initial in $k$-algebras.) However, in $\fun(\man,\ssets)$, the initial object is not $H_{pt}$, but rather the functor sending $M \mapsto \emptyset$. So we would like to further localize with respect to the unique map
+Finally, note that the 0-manifold $pt \cong \RR^0$ is terminal in $\man$. We'd like this to be reflected in the category of smooth rings. (This reflects as principle from algebraic geometry: if $\spec k$ is terminal in $k$-schemes, we'd like the structure ring $k$ to be initial in $k$-algebras.) However, in $\fun(\man,\ssets)$, the initial object is not $H_{pt}$, but rather the functor sending $M \mapsto \emptyset$. So we would like to further localize with respect to the unique map
 	\eqnn
 	 (M \mapsto \emptyset) \to H_{pt}.
 	\eqnd 
@@ -152,6 +152,18 @@ Thus $G$ is given by the functor $\man \to \ssets$ whose non-degenerate bit we r
 	\eqnd
 Here, both $d_i$ are induced by the inclusion $0: pt \to \RR$. 
 
+\hiro{
+Added after phone discussion.
+Note that this sheaf of simplicial sets is not fibrant. Even when evaluated on $\RR$, or on $pt$, it is not a Kan complex. 
+What we can try to prove is that, on each manifold, the map
+	\eqnn
+		G
+		\to
+		Implicit-stuff
+	\eqnd
+is left/right anodyne. Then by 4.1.1.3 of HTT, this map is initial/final, hence an homotopy equivalence in the Quillen/Kan sense.
+Aside from the definition (4.1.1.1 of HTT) of being final, Joyal's characterization (Theorem 4.1.3.1 of HTT) may also be helpful.
+}
 \end{example}
 
 
@@ -179,11 +191,11 @@ We remind the reader of what localization of $\cC$ to $\cC[\Psi^{-1}]$ does, at 
 \end{remark}
 
 
-\subsection{Derived manifolds}
-Let $X$ be a topological space. Let $\cF$ be a sheaf of $C^\infty$ rings. This means that $\cF$ is a contravariant functor from $\open(X)$ to $\fun(\man,\ssets)$, satisfying the following property: 
-\hiro{Continue here.}
+\subsection{Sheaves, local sheaves, derived manifolds}
+Let $X$ be a topological space. Let $\cF$ be a sheaf of $C^\infty$ rings. This means that $\cF$ is a contravariant functor from $\open(X)$ to $\fun(\man,\ssets)$, satisfying descent for hypercovers.
 
-
+\subsubsection{Local sheaves}
+\begin{defn}
 We say that $\cF$ is local if, for every open cover $\{U_\alpha$ of $M$, the natural map of sheaves of sets
 	\eqnn
 		\pi_0 
@@ -193,8 +205,64 @@ We say that $\cF$ is local if, for every open cover $\{U_\alpha$ of $M$, the nat
 		\to
 		\pi_0 \cF(-,M)
 	\eqnd
-is a surjection. If $\cF$ is local, we say that the pair $(X,\cF)$ is a local smooth-ringed space.
+is a surjection. 
+\end{defn}
 
+\begin{defn}
+If $\cF$ is local, we say that the pair $(X,\cF)$ is a local smooth-ringed space.
+\end{defn}
+
+\begin{defn}
+If $\cF$ and $\cG$ are sheaves, we say that $\phi: \cF \to \cG$ is a local morphism of sheaves if and only if: For any open $U \subset M$, the natural diagram
+	\eqnn
+		\xymatrix{
+			\pi_0\cF(-,U) \ar[r]^\phi \ar[d]^{res} 
+				& \pi_0 \cF( - , U) \ar[d]^{res} \\
+			\pi_0 \cF(-, M) \ar[r]^\phi & \pi_0 \cF(-,M)
+		}
+	\eqnd
+exhibits $\pi_0 \cF( - , U)$ as a pullback of sheaves of sets.
+
+We let
+	\eqnn
+		\map_{\loc}(\cF,\cG) \subset \map(\cF,\cG)
+	\eqnd
+denote the full simplicial set spanned by local morphisms. That is, every simplex on the righthand side has vertices given by local morphisms.
+\end{defn}
+
+\begin{defn}
+If $(X,\cO_X)$ and $(Y,\cO_Y)$ are local smooth-ringed spaces, we let
+	\eqnn
+		\map(X,Y) := \coprod_{\phi: X \to Y} \map_{\loc} (\phi^*\cO_Y, \cO_X).
+	\eqnd
+where $\phi$ runs over all continuous maps.
+\end{defn}
+
+The following gives some intuition for why we insist on the adjective local:
+
+\begin{theorem}[Theorem~3.3.6 of~\cite{spivak-thesis}.]
+Let $\cF$ be a sheaf of smooth ring son $X$. The following are equivalent:
+\enum
+	\item
+		$\cF$ is local.
+	\item
+		For every open cover $U_\bullet \to M$ of a smooth manifold $M$, the natural map
+			\eqnn
+				\hocolim(\cF(-,U_\bullet)) \to \cF(-,M)
+			\eqnd
+		is a weak equivalence of simplicial sheaves on $X$. Here, the hocolim is over the Cech nerve of the cover.
+	\item
+		The same holds above if each element of the open cover $U_\bullet$ is by Euclidean spaces.
+	\item
+		If $f: \cF \to \cG$ is a local morphism of sheaves of smooth rings, and if $f$ induces a weak equivalence of sheaves
+			\eqnn
+				\cF(-,\RR) \simeq \cG(-,\RR)
+			\eqnd
+		then $f$ is a weak equivalence of sheaves of local smooth rings. (This is Corollary~3.3.7 of~\cite{spivak-thesis}.)
+\enumd
+\end{theorem}
+
+\subsubsection{Derived manifolds}
 We will show how to compute homotopy pullbacks of $C^\infty$-ringed spaces momentarily. But for now:
 
 \begin{defn}
@@ -205,10 +273,36 @@ Let $f: \RR^n \to \RR^m$ be a smooth map. Then the $C^\infty$-ringed space given
 		\RR^n \ar[r]^f & \RR^m
 	}
 	\eqnd
-which we write $\cU = (U, \cO_U)$, is called a principal derived manifold. Any Hausdorff smooth-ringed space $(X,\cO_X)$ is called a derived manifold if it can be covered by countably many principal derived manifolds.
+which we write $\cU = (U, \cO_U)$, is called a principal derived manifold. 
+\end{defn}
+
+\begin{defn}
+Any Hausdorff smooth-ringed space $(X,\cO_X)$ is called a derived manifold if it can be covered by countably many principal derived manifolds.
 \end{defn}
 
 In other words, derived manifolds are locally modeled on zero locuses of functions. The salient point here is that the homotopy fiber product is what produces a robust interpretation of the zero locus---one that is independent of perturbations, and which can shrug off non-transversality.
+
+\begin{defn}
+The category of derived manifolds is the full simplicial subcategory of the category of locally smooth-ringed spaces.
+\end{defn}
+
+Here are some basic properties to get the reader acclimated:
+
+\begin{theorem}
+\enum
+	\item
+		Any smooth manifold $M$ defines a structure sheaf $\cO_M$ which sends any manifold $N$ to the set of smooth functions from $M$ to $N$. This is a locally smooth-ringed space. (Proposition~3.2.2 of~\cite{spivak-thesis}.)
+	\item
+		The inclusion of smooth manifolds (with a discrete set of smooth maps) into the simplicial category of locally ringed spaces is fully faithful. (Proposition~3.2.3 of~\cite{spivak-thesis}.) 
+	\item
+		If $(X,\cO_X)$ is a locally smooth-ringed space, then for any smooth manifold $M$, the simplicial set of (local) maps from $(X,\cO_X)$ to $(M,\cO_M)$ is homotopy equivalent to $\cO_X(X,M)$. In other words, the global sections of $\cO_X$, evaluated on the manifold $M$, recovers the space of maps from $X$ to $M$. (Theorem~3.3.3 of~\cite{spivak-thesis}.) 
+\enumd
+\end{theorem}
+
+\subsubsection{Computing with derived manifolds}
+First we discuss how to compute fiber products. The algorithm is: Take the fiber product in the usual category of topological spaces, then take the homotopy pushout in the category of sheaves of simplicial rings.
+
+
 
 
 
@@ -216,6 +310,14 @@ In other words, derived manifolds are locally modeled on zero locuses of functio
 \subsection{Simplicial commutative algebras}
 \hiro{Section 3.5 of~\cite{spivak-thesis}.}
 
-Smooth-ringed spaces define derived manifolds, but they rarely allow us to compute. Thankfully, replacing a smooth ring with its underlying simplicial commutative $\RR$-algebra preserves many homotopy colimits.
+Smooth-ringed spaces define derived manifolds, but they rarely allow us to compute. Thankfully, replacing a smooth ring with its underlying simplicial commutative $\RR$-algebra preserves many homotopy colimits. This buys us mileage in local computations: While taking global sections is a limit, taking stalks is a colimit.
+
+For instance, we have:
+
+\begin{lemma}[Lemma~3.5.7 of~\cite{spivak-thesis}]
+Let $\cF$ be a sheaf of smooth rings on $X$.
+
+\end{lemma}
+
 
 
