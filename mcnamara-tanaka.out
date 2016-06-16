@@ -5,6 +5,9 @@
 \BOOKMARK [1][-]{section.4}{Derived manifolds}{}% 5
 \BOOKMARK [2][-]{subsection.4.1}{Local models and C rings}{section.4}% 6
 \BOOKMARK [2][-]{subsection.4.2}{Smooth rings}{section.4}% 7
-\BOOKMARK [2][-]{subsection.4.3}{Derived manifolds}{section.4}% 8
-\BOOKMARK [2][-]{subsection.4.4}{Simplicial commutative algebras}{section.4}% 9
-\BOOKMARK [1][-]{section.5}{Implicit atlases}{}% 10
+\BOOKMARK [2][-]{subsection.4.3}{Sheaves, local sheaves, derived manifolds}{section.4}% 8
+\BOOKMARK [3][-]{subsubsection.4.3.1}{Local sheaves}{subsection.4.3}% 9
+\BOOKMARK [3][-]{subsubsection.4.3.2}{Derived manifolds}{subsection.4.3}% 10
+\BOOKMARK [3][-]{subsubsection.4.3.3}{Computing with derived manifolds}{subsection.4.3}% 11
+\BOOKMARK [2][-]{subsection.4.4}{Simplicial commutative algebras}{section.4}% 12
+\BOOKMARK [1][-]{section.5}{Implicit atlases}{}% 13
