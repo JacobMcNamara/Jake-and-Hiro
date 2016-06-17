@@ -8,6 +8,56 @@ we would like to have that the $C^\oo$-ring $\cO(X)$ is the homotopy tensor prod
 
 \hiro{Great simple example, and nice motivation. This could be cast as "Example x.y.z" after we finish writing a definition we know to be correct.}
 
+\subsection{The cospan nerve of a category}
+
+\begin{definition}\label{cospan-nerve}
+Let $\cC$ be a category. We construct a simplicial set $\CoSpan^\bullet(\cC)$, the {\bf cospan nerve} of $\cC$, as follows. Let $\cP_+(n)$ denote the poset of nonempty subsets of the set $[n] = \{0, \dots, n\}$. We define
+\[ \CoSpan^n(\cC) = \Fun(\cP_+(n), \cC), \]
+the set of functors from $\cP_+(n)$ to $\cC$. Given a map $f: [n] \to [m]$, we get an induced map $\CoSpan^m(\cC) \to \CoSpan^n(\cC)$ given by pulling back along $f$, and so $\CoSpan^\bullet(\cC)$ is a simplicial set.
+\end{definition}
+
+\begin{prop}\label{cospans-are-kan}
+Let $\cC$ be a category with weak pushouts. Then $\CoSpan^\bullet(\cC)$ is a Kan complex.
+\end{prop}
+
+\begin{proof}
+\jake{[To be completed.]}
+\end{proof}
+
+\begin{speculation}
+Suppose $\cC$ is a category with weak pushouts and a weak initial object. Then $\CoSpan^\bullet(\cC)$ is contractible.
+\end{speculation}
+
+\subsection{Category of thickenings}
+
+\begin{definition}
+A {\bf thickening chart}  $\cU = (Y, E, f)$ consists of a smooth manifold $Y$, together with a smooth vector bundle $E$ over $Y$ and a smooth section $f: Y \to E$. Given two thickening charts $\cU_i = (Y_i, E_i, f_i)$ for $i = 0, 1$, a morphism $\cU_0 \to \cU_1$ is a smooth embedding $i: Y_0 \hookrightarrow Y_1$ together with an inclusion of vector bundles $j: E_0 \hookrightarrow i^* E_1$ such that $j \circ f_0 = i^*(f_1)$, and such that the induced diagram
+\[\xymatrix{
+		Y_0 \ar[d]_-{f_0} \ar@{^{(}->}[r]^-{i} & Y_1 \ar[d]^-{f_1} \\
+		E_0 \ar@{^{(}->}[r]_-{\widetilde{\jmath}} & E_1}\]
+is a transverse pullback of smooth manifolds. We let $\cT$ denote the category whose objects are thickening charts, and whose morphisms are morphisms of thickening charts.
+\end{definition}
+
+\begin{remark}
+\jake{There are two functors out of $\cT$ that should be very interesting. The first is a functor to Hausdorff spaces and open embeddings, and is called ``take the zero set of the section $f$." The second is a functor to smooth manifolds, called ``forget the vector bundle $E$ and the section $f$."}
+\end{remark}
+
+\begin{prop}\label{weak-pullback-charts}
+The category $\cT$ has weak pushouts, and hence $\CoSpan^\bullet(\cT)$ is a Kan complex. \jake{[This is not true, only locally true.]}
+\end{prop}
+
+\begin{proof}
+\jake{[To be done.]}
+\end{proof}
+
+\begin{prop}\label{weak-initial-charts}
+Let $\cU$ be a thickening chart, and let $\cT_\cU$ denote the full subcategory of $\cT$ on those thickening charts $\cV$ such that $\cU$ and $\cV$ are in the same connected component of $\CoSpan^\bullet(\cT)$. Then $\cT_\cU$ has a weak initial object, and hence $\CoSpan^\bullet(\cT)$ is the disjoint union of contractible components. \jake{[This is not true, only locally true.]}
+\end{prop}
+
+\begin{proof}
+\jake{[To be done.]}
+\end{proof}
+
 \subsection{Simplicial sheaf of $n$-thickenings}
 
 \begin{defn}\label{n-thickening}
@@ -25,7 +75,7 @@ Let $X$ be a Hausdorff space. There is a simplicial (pre?)sheaf $\cT \cH_X^\bull
 The face maps are given by
 \[ d_i : \left( Y, (E_0, \sigma_0; \dots; E_n, \sigma_n) \right) \mapsto \left( \sigma_i^{-1}(0), (E_0, \sigma_0; \dots; \wh E_i; \wh \sigma_i, \dots ; E_n, \sigma_n) \right), \]
 and the degeneracies are given by
-\[ s_i : \left( Y, (E_0, \sigma_0; \dots; E_n, \sigma_n) \right) \mapsto \left( Y \times E_i, (E_0, \sigma_0; \dots; E_i, \sigma_i \circ \pi_1 - \pi_2; E_i, \pi_2; \dots; E_n, \sigma_n) \right). \]
+\[ s_i : \left( Y, (E_0, \sigma_0; \dots; E_n, \sigma_n) \right) \mapsto \left( Y \times E_i, (E_0, \sigma_0; \dots; E_i, \pi_2 - \sigma_i \circ \pi_1; E_i, \pi_2; \dots; E_n, \sigma_n) \right). \]
 Finally, if $V \subset U$ is open, then the restriction map is given by
 \[ r_{U, V}: \left( Y, (E_0, \sigma_0; \dots; E_n, \sigma_n) \right) \mapsto \left( W, (E_0, \rest{\sigma_0}{W}; \dots; E_n, \rest{\sigma_n}{W}) \right), \]
 where $W \subset Y$ is any open subset with $W \cap U = V$. Any two choices of such a $W$ are equivalent, since we are working locally around $X$.
@@ -59,7 +109,43 @@ The simplicial set $\cT \cH^\bullet(U)$ is equivalent to a discrete simplicial s
 \end{prop}
 
 \begin{proof}
-\jake{[Proof to be completed.]}
+\jake{[Proof again only works locally on $X$, some sheafy details to be worked out.]}
+
+We show that each component of $\TH^\bullet(U)$ is contractible. Let $p = (Y, (E, f)) \in \TH^0(U)$ be such that $Y$ is of minimal dimension among all thickenings in the connected component of $p$. We claim that any $n$-simplex $(W, (E_0, f_0, \dots, E_n, f_n))$ with vertices at $p$ is necessarily degenerate at $p$, which would imply that the component of $p$ is contractible since $X$ is a Kan complex.
+
+We proceed by induction on $n$. For $n = 1$, suppose we have a $1$-simplex $q = (W, (E_0, f_0, E_1, f_1))$ with vertices given by $p$. Explicitly, this means we are given embeddings $\iota_i : Y \to W$ such that $Y_i = \im(\iota_i)$ satisfies $Y_0 = f_1^{-1}(0)$ and vice versa, together with (not necessarily linear) isomorphisms of bundles $u_i: \overline{E} \to \iota_i^* \overline{E_i}$ such that $u_i \circ f = \iota_i^* (f_i)$. Choose $x \in U$, and consider the map
+\[ df_0 \oplus df_1 : T_x W \to E_0 \oplus E_1. \]
+We claim that the rank of this map is equal to the dimension of $E \cong E_i$. Suppose not. Then we would have that $\ker(df_0 \oplus df_1)$ had dimension strictly lower than that of $\ker(df_i)$, which by Lemma \ref{minimal-dimension} would construct a thickening of strictly lower dimension than $Y$ in the same connected component, contradicting the minimality of $Y$.
+
+Now, we have that $F = \im(df_0 \oplus df_1)$ has dimension equal to that of $E_i$, and further that $\pi_i : F \to E_i$ is an isomorphism since $df_i$ is surjective. Thus, we may identify $E_i$ with $F$ by this given isomorphism, and we may assume that
+\[ q = (W, (F, f_0, F, f_1)), \]
+such that $\im(df_0 \oplus df_1)$ at $x$ is the diagonal $F \oplus F$, or equivalently, such that $df_0 = df_1$ as maps $T_x W \to F$. Now, choose an isomorphism $h: E \to F$ of vector spaces, and consider the map
+
+\end{proof}
+
+\begin{lemma}\label{minimal-dimension}
+Let $(W, (E_0, f_0, E_1, f_1))$ be a $1$-thickening of $U$ with endpoints $p_i = (Y_i, (E_i, f_i))$, for $Y_0 = f_1^{-1}(0)$ and vice versa. Let $x \in U$, and let
+\[d = \dim(T_x Y_1 \cap T_x Y_2).\]
+Then there exists a $0$-thickening $q = (Z, (H, h))$ of some neighborhood $V$ of $x$ in $U$ with $\dim(Z) = d$, and such that $q$ is in the same connected component of $\TH^\bullet(V)$ as $r_{U, V}(p_i)$.
+\end{lemma}
+
+\begin{proof}
+
+Consider
+\[ df_1 \oplus df_2 : T_x W \to E_1 \oplus E_2, \]
+and let $F = \im(df_1 \oplus df_2)$. Choose a complement $H$ for $F$ such that $H \subset E_1$; such an $F$ exists because $df_2$ is surjective by transversality. Let $\pi_F, \pi_H$ be the projections induced by this decomposition, and consider the function 
+\[g = \pi_F \circ (f_1 \oplus f_2) : W \to F.\]
+We have that $dg$ is surjective at $x$, and so there is a neighborhood $V$ of $x$ where $Z = g^{-1}(0)$ is a smooth manifold. Consider now the $0$-thickening $q$ of $V$ given by
+\[ q = (Z, (H, h = f_1)),\]
+which is well defined, since on $Z$ we have that $f_1$ takes values in $H$. This thickening has
+\[ \dim(Z) = \dim(\ker(df_2 \oplus df_2)) = d,\]
+and further there is a $1$-thickening
+\[ (f_1^{-1}(H), (H, f_1, E_2, f_2)), \]
+with endpoints given by
+\[ (f_1^{-1}(0), (E_2, f_2)) = (Y, (E, f)), \]
+and
+\[ (f_1^{-1}(H) \cap f_2^{-1}(0), (H, f_1)) = (Z, (H, h)), \]
+and thus we have found the desired thickening.
 
 \end{proof}
 
