@@ -38,6 +38,20 @@ A {\bf thickening chart}  $\cU = (Y, E, f)$ consists of a smooth manifold $Y$, t
 is a transverse pullback of smooth manifolds. We let $\cT$ denote the category whose objects are thickening charts, and whose morphisms are morphisms of thickening charts.
 \end{definition}
 
+\begin{wild-speculation}\label{model-category}
+Consider the category whose objects are thickening charts, and whose morphisms are the same as morphisms of thickening charts but without the condition that $i$ and $\widetilde{\jmath}$ above be embeddings or the transverse pullback condition. I think there should be a model structure on this, where we have
+\begin{itemize}
+
+\item Cofibrations are maps with $i$ and $\widetilde{\jmath}$ embeddings.
+
+\item Weak equivalences are maps that are homeomorphisms on the zero set, and which are quasi-isomorphisms on the tangent complex \jake{[to be defined]} around the zero set.
+
+\item Fibrations should have at least that the map $Y_0 \to Y_1$ be a submersion, plus probably the homotopy lifting property.
+
+\end{itemize}
+I think I can show that the acyclic cofibrations are just the things I'm calling morphisms of thickening charts above, with the extra condition that the zero sets be the same.
+\end{wild-speculation}
+
 \begin{remark}
 \jake{There are two functors out of $\cT$ that should be very interesting. The first is a functor to Hausdorff spaces and open embeddings, and is called ``take the zero set of the section $f$." The second is a functor to smooth manifolds, called ``forget the vector bundle $E$ and the section $f$."}
 \end{remark}
