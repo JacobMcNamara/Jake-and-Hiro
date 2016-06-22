@@ -72,6 +72,41 @@ Let $\cU$ be a thickening chart, and let $\cT_\cU$ denote the full subcategory o
 \jake{[To be done.]}
 \end{proof}
 
+\subsection{Model structure on thickening charts}
+
+\begin{definition}\label{thickening-model-structure}
+We define a category of thickening charts and their tangent complexes, together with specified classes of cofibrations, fibrations, and weak equivalences, as follows.
+\begin{itemize}
+
+\item Objects are thickening charts $\cX = (Y_\cX, E_\cX, f_\cX)$, consisting of a smooth manifold $Y$, a smooth vector bundle $E_\cX$ over $Y_\cX$, and a smooth section $f_\cX$ of $E_\cX$. We will use the notation $\cX_0 = f_\cX^{-1}(0) \subset Y_\cX$ to denote the underlying topological space of $\cX$.
+
+\item A pre-morphism $\cF = (U_\cF, i_\cF, j_\cF): \cX \to \cZ$ is given by an open neighborhood $U_\cF$ of $\cX_0$ in $Y_\cX$, together with a smooth map $i_\cF: U_\cF \to Y_\cZ$ and a smooth map $j_\cF: \rest{E_\cX}{U_\cF} \to \rest{i_\cF^* E_\cZ}U_{\cF}$ of vector bundles such that $j_\cF \circ f_\cX = i_\cF^*(f_\cZ)$. A morphism is an equivalence class of pre-morphisms, where two pre-morphisms defined on neighborhoods $U_1, U_2$ are declared equivalent if they agree on a smaller neighborhood $U \subset U_1, U_2$. We will usually abuse notation and consider $\cF$ above to be a morphism, remembering that it is just the germ of $\cF$ around $\cX_0$ that matters.
+
+\item Given a thickening chart $\cX$ and a point $x \in \cX_0$, we define the tangent complex $T_x \cX$ of $\cX$ at $x$ to be the chain complex
+\[\xymatrix{ \cdots & 0 \ar[l] & \left(E_\cX\right)_x \ar[l] & T_x Y_\cX \ar[l]_-{(df_\cX)_x} & 0 \ar[l] & \cdots \ar[l] }\]
+with $T_x Y_\cX$ in degree zero. This is well defined because $f_\cX(x) = 0$. The assignment $(\cX, x) \mapsto T_x \cX$ defines a functor from pointed thickening charts to chain complexes. We will use $d \cF_x: T_x \cX \to T_{i_\cF(x)} \cZ$ to denote the action of this functor on a morphism $\cF: \cX \to \cY$.
+
+\item A morphism $\cF : \cX \to \cZ$ is a cofibration if the induced map $\rest{i_\cF}{\cX_0}: \cX_0 \to \cZ_0$ is an embedding, and if $d \cF_x$ is a cofibration of chain complexes, i.e. a level-wise injection, for every $x \in \cX_0$.
+
+\item A morphism $\cF : \cX \to \cZ$ is a fibration if $d \cF_x$ is a fibration of chain complexes, i.e. a level-wise surjection, for every $x \in \cX_0$.
+
+\item A morphism $\cF : \cX \to \cZ$ is a weak equivalence if the induced map $\rest{i_\cF}{\cX_0}: \cX_0 \to \cZ_0$ is a homeomorphism, and if $d \cF_x$ is a quasi-isomorphism of chain complexes for every $x \in \cX_0$.
+
+\end{itemize}
+\end{definition}
+
+\begin{prop}\label{model-structure}
+The above classes of cofibrations, fibrations, and weak equivalences is a model structure on the category of thickening charts, in the sense of Goerss-Jardine. \jake{[Add reference.]} \jake{Note that the category of thickening charts is not complete or cocomplete.}
+\end{prop}
+
+\begin{proof}
+
+First, we must show that the weak equivalences satisfy the 2-out-of-3 property, but this is immediate from the same fact about homeomorphisms of topological spaces and quasi-isomorphisms of chain complexes. Similarly, the closure of cofibrations, fibrations, and weak equivalences under retracts follows from the corresponding facts about embeddings, fiber bundles, and homeomorphisms \jake{[Check this!]}, as well as for cofibrations, fibrations, and quasi-isomorphisms of chain complexes.
+
+To show the existence of factorizations, let $\cF: \cX \to \cZ$ be any morphism. WLOG, we may assume that $U_\cF = Y_\cX$ \jake{[Add lemma explaining that open inclusions arke isos]}. Consider the graph $\Gamma \subset Y_\cX \times Y_\cZ$ of the map $i_\cF$. By the tubular neighborhood theorem, there exists an open neighborhood $U$ of $\Gamma$ such that $U \cong \Gamma \times $
+
+\end{proof}
+
 \subsection{Simplicial sheaf of $n$-thickenings}
 
 \begin{defn}\label{n-thickening}
