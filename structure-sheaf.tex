@@ -28,14 +28,60 @@ Let $\cC$ be a category with weak pushouts. Then $\CoSpan^\bullet(\cC)$ is a Kan
 Suppose $\cC$ is a category with weak pushouts and a weak initial object. Then $\CoSpan^\bullet(\cC)$ is contractible.
 \end{speculation}
 
+\subsection{The local $\Ex$ functor}
+
+\jake{Reference is Goerss-Jardine, III.4}
+
+We construct a version of the functor $\Ex: \ssets \to \ssets$ in the slice category $\ssets_{/S}$ of simplicial sets over $S$. First, we recall the relevant properties of the $\Ex$ functor. First, we have a natural inclusion $\eta: X \to \Ex(X)$ for any simplicial set $X$, which is an acyclic cofibration. Further, we have that the colimit $\Ex^\oo(X) = \lim_{n \to \oo} \Ex^n(X)$, where $\Ex^n$ denotes $n$-fold application of $\Ex$, is a fibrant replacement functor in the Quillen model structure on simplicial sets.
+
+\begin{definition}\label{local-Ex}
+Let $p: T \to S$ be a map of simplicial sets. We have a natural diagram
+\[\xymatrix{
+T \ar[r]^-{\eta} \ar[d]_-{p} & \Ex(T) \ar[d]^-{\Ex(p)} \\
+S \ar[r]_-{\eta} & \Ex(S)
+}\]
+We define $\Ex_S(T) = S {}_{\eta}{\times}_{\Ex(p)} \Ex(T)$. The above diagram induces a natural inclusion $\eta_S:T \to \Ex_S(T)$ over $S$.
+\end{definition}
+
+\jake{This is the same as taking the simplicial set whose simplices are cospans in $T$, such that all the arrows pointing the ``wrong way" cover identity maps in $S$.}
+
+\begin{prop}\label{local-Ex-weak-equivalence}
+The natural map $\eta_S: T \to \Ex_S(T)$ is an acyclic cofibration in the contravariant model structure \jake{[reference is H.T.T. Remark 2.1.4.12]}.
+\end{prop}
+
+\begin{proof}
+That $\eta_S$ is a cofibration is immediate from the definition, since cofibrations are just monomorphisms of simplicial sets, and $\eta$ is a monomorphism. To show that it is a weak equivalence, we must show that the induced map
+\[ S \coprod_T T^\rhd \to S \coprod_{\Ex_S(T)} \Ex_S(T)^\rhd, \]
+is a categorical equivalence. \jake{[Need to complete proof; use facts about $T \to \Ex(T)$.]}
+\end{proof}
+
+\begin{prop}\label{presheaf-of-implicit-structures}
+\jake{This says that we have a simplicial presheaf of thickening charts over the category of Hausdorff spaces.} Let $S$ be the nerve of the category of Hausdorff spaces and open embeddings, and let $T$ be the nerve of the category $\cT$ defined below in Definition \ref{thickening-charts}. Let $p: T \to S$ be the nerve of the functor given by sending a thickening chart $(Y, E, f)$ to the zero locus $f^{-1}(0)$. Then the map $\Ex_S(T) \to S$ is a right fibration.
+\end{prop}
+
+\begin{proof}
+
+Suppose we are given a simplex $\Delta^n \to S$, together with a lift of $\Lambda^n_\alpha \subset \Delta^n$ to a map $\Lambda^n_\alpha \to \Ex_S(T)$. We need to show that there exists a simplex $\Delta^n \to \Ex_S(T)$ compatible with the given data as long as $0 < \alpha \leq n$.
+
+More explicitly, we are given Hausdorff spaces $X_0, \dots, X_n$, together with embeddings $\iota_{\beta \gamma}: X_\beta \hookrightarrow X_\gamma$ when $\beta < \gamma$ such that $\iota_{\gamma \delta} \circ \iota_{\beta \gamma} = \iota_{\beta \delta}$, and thickening charts $(Y_I, E_I, f_I)$ for each nonempty subset $I \subset \{0, \dots, n\}$ such that $I$ does not contain $\{0, \dots, \widehat{\alpha}, \dots, n\}$. We have that $X_\beta = f_I^{-1}(0)$ whenever $\beta$ is the greatest element of $I$. We further have morphisms
+\[ (i_{I J}, j_{I J}): (Y_I, E_I, f_I) \to (Y_J, E_J, f_J), \]
+when $I \subset J$, such that $(i_{J K}, j_{J K}) \circ (i_{I J}, j_{I J}) = (i_{I K}, j_{I K})$. Further, if $\beta$ is the greatest element of $I$ and $\gamma$ is the greatest element of $J$, then $\rest{i_{I J}}{X_\beta}: X_\beta \to X_\gamma$ is $\iota_{\beta \gamma}$ if $\beta < \gamma$, and is the identity if $\beta = \gamma$.
+
+Now, we will construct thickenings $(\wt Y_I, \wt E_i, \wt f_i)$ for each nonempty proper subset $I \subset \{0, \dots, 1\}$ such that $\alpha \in I$, together with morphisms $(\wh i_I, \wh j_I)$, and such that we have morphisms $(\wt i_{IJ}, \wt j_{I J})$ with the same compatibility conditions as above, and further such that the diagram
+\[\xymatrix{
+
+
+
+\end{proof}
+
 \subsection{Category of thickenings}
 
-\begin{definition}
+\begin{definition}\label{thickening-charts}
 A {\bf thickening chart}  $\cU = (Y, E, f)$ consists of a smooth manifold $Y$, together with a smooth vector bundle $E$ over $Y$ and a smooth section $f: Y \to E$. Given two thickening charts $\cU_i = (Y_i, E_i, f_i)$ for $i = 0, 1$, a morphism $\cU_0 \to \cU_1$ is a smooth embedding $i: Y_0 \hookrightarrow Y_1$ together with an inclusion of vector bundles $j: E_0 \hookrightarrow i^* E_1$ such that $j \circ f_0 = i^*(f_1)$, and such that the induced diagram
 \[\xymatrix{
 		Y_0 \ar[d]_-{f_0} \ar@{^{(}->}[r]^-{i} & Y_1 \ar[d]^-{f_1} \\
 		E_0 \ar@{^{(}->}[r]_-{\widetilde{\jmath}} & E_1}\]
-is a transverse pullback of smooth manifolds. We let $\cT$ denote the category whose objects are thickening charts, and whose morphisms are morphisms of thickening charts.
+is a transverse pullback of smooth manifolds. We let $\cT$ denote the category whose objects are thickening charts, and whose morphisms are \jake{germs of} morphisms of thickening charts.
 \end{definition}
 
 \begin{wild-speculation}\label{model-category}
@@ -86,7 +132,7 @@ We define a category of thickening charts and their tangent complexes, together 
 \[\xymatrix{ \cdots & 0 \ar[l] & \left(E_\cX\right)_x \ar[l] & T_x Y_\cX \ar[l]_-{(df_\cX)_x} & 0 \ar[l] & \cdots \ar[l] }\]
 with $T_x Y_\cX$ in degree zero. This is well defined because $f_\cX(x) = 0$. The assignment $(\cX, x) \mapsto T_x \cX$ defines a functor from pointed thickening charts to chain complexes. We will use $d \cF_x: T_x \cX \to T_{i_\cF(x)} \cZ$ to denote the action of this functor on a morphism $\cF: \cX \to \cY$.
 
-\item A morphism $\cF : \cX \to \cZ$ is a cofibration if the induced map $\rest{i_\cF}{\cX_0}: \cX_0 \to \cZ_0$ is an embedding, and if $d \cF_x$ is a cofibration of chain complexes, i.e. a level-wise injection, for every $x \in \cX_0$.
+\item A morphism $\cF : \cX \to \cZ$ is a cofibration if $d \cF_x$ is a cofibration of chain complexes, i.e. a level-wise injection, for every $x \in \cX_0$.
 
 \item A morphism $\cF : \cX \to \cZ$ is a fibration if $d \cF_x$ is a fibration of chain complexes, i.e. a level-wise surjection, for every $x \in \cX_0$.
 
