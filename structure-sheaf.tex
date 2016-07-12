@@ -55,22 +55,70 @@ That $\eta_S$ is a cofibration is immediate from the definition, since cofibrati
 is a categorical equivalence. \jake{[Need to complete proof; use facts about $T \to \Ex(T)$.]}
 \end{proof}
 
+\begin{remark}
+Let $\cX = (Y, E, f)$ be a thickening. There is a functor $\TH_\cX$ from the category of smooth vector bundles over $Y$ and smooth vector bundle inclusions to the under-category $\cT_{\cX/}$, given on objects by
+\[ \TH_\cX: \left(\pi: F \to Y\right) \mapsto \left(F, \pi^* F \oplus \pi^* E, \rho_F \oplus \pi^*(f) \right),\]
+where $\rho_F$ is the canonical section of $\pi^* F \to F$.
+\end{remark}
+
 \begin{prop}\label{presheaf-of-implicit-structures}
 \jake{This says that we have a simplicial presheaf of thickening charts over the category of Hausdorff spaces.} Let $S$ be the nerve of the category of Hausdorff spaces and open embeddings, and let $T$ be the nerve of the category $\cT$ defined below in Definition \ref{thickening-charts}. Let $p: T \to S$ be the nerve of the functor given by sending a thickening chart $(Y, E, f)$ to the zero locus $f^{-1}(0)$. Then the map $\Ex_S(T) \to S$ is a right fibration.
 \end{prop}
 
+\begin{lemma}\label{vector-bundle-diagrams}
+Let $D: \cD \to \cT_{\cX /}$ be any diagram, where $\cD$ is a poset. Suppose that, for all $I \in \cD$, we have that the map $\cX \to D(I)$ is the identity map on the zero sets. Then $D$ must factor through $\TH_\cX$, up to natural isomorphism.
+\end{lemma}
+
 \begin{proof}
+\jake{[To be done.]}
+\end{proof}
 
-Suppose we are given a simplex $\Delta^n \to S$, together with a lift of $\Lambda^n_\alpha \subset \Delta^n$ to a map $\Lambda^n_\alpha \to \Ex_S(T)$. We need to show that there exists a simplex $\Delta^n \to \Ex_S(T)$ compatible with the given data as long as $0 < \alpha \leq n$.
 
-More explicitly, we are given Hausdorff spaces $X_0, \dots, X_n$, together with embeddings $\iota_{\beta \gamma}: X_\beta \hookrightarrow X_\gamma$ when $\beta < \gamma$ such that $\iota_{\gamma \delta} \circ \iota_{\beta \gamma} = \iota_{\beta \delta}$, and thickening charts $(Y_I, E_I, f_I)$ for each nonempty subset $I \subset \{0, \dots, n\}$ such that $I$ does not contain $\{0, \dots, \widehat{\alpha}, \dots, n\}$. We have that $X_\beta = f_I^{-1}(0)$ whenever $\beta$ is the greatest element of $I$. We further have morphisms
-\[ (i_{I J}, j_{I J}): (Y_I, E_I, f_I) \to (Y_J, E_J, f_J), \]
-when $I \subset J$, such that $(i_{J K}, j_{J K}) \circ (i_{I J}, j_{I J}) = (i_{I K}, j_{I K})$. Further, if $\beta$ is the greatest element of $I$ and $\gamma$ is the greatest element of $J$, then $\rest{i_{I J}}{X_\beta}: X_\beta \to X_\gamma$ is $\iota_{\beta \gamma}$ if $\beta < \gamma$, and is the identity if $\beta = \gamma$.
+\begin{proof}[Proof of Proposition \ref{presheaf-of-implicit-structures}]
 
-Now, we will construct thickenings $(\wt Y_I, \wt E_i, \wt f_i)$ for each nonempty proper subset $I \subset \{0, \dots, 1\}$ such that $\alpha \in I$, together with morphisms $(\wh i_I, \wh j_I)$, and such that we have morphisms $(\wt i_{IJ}, \wt j_{I J})$ with the same compatibility conditions as above, and further such that the diagram
+Suppose we are given a simplex $\Delta^n \to S$, together with a lift of $\Lambda^n_\alpha \subset \Delta^n$ to a map $\Lambda^n_\alpha \to \Ex_S(T)$. We need to show that there exists a simplex $\Delta^n \to \Ex_S(T)$ compatible with the given data as long as $0 < \alpha \leq n$. We will induct on the poset $\{ \mathrm{RH} \leq \mathrm{IH} \}$, where $\mathrm{RH}$ denotes right horns, and $\mathrm{IH}$ denotes inner horns. That is, at each step in the proof, if we make an argument that depends on casework for right horns and inner horns separately, in the case of inner horns, we will allow ourselves to assume that the proposition is already proven for right horns.
+
+More explicitly, we are given Hausdorff spaces $X_0, \dots, X_n$, together with embeddings $\iota_{\beta \gamma}: X_\beta \hookrightarrow X_\gamma$ when $\beta < \gamma$ such that $\iota_{\gamma \delta} \circ \iota_{\beta \gamma} = \iota_{\beta \delta}$ and $\iota_{\beta \beta} = \id_{X_\beta}$. WLOG, we may assume that $\iota_{\beta \gamma}$ is the inclusion of an open subset. We further have thickening charts $\cX_I = (Y_I, E_I, f_I)$ for each nonempty subset $I \subset \{0, \dots, n\}$ such that $I$ does not contain $\{0, \dots, \widehat{\alpha}, \dots, n\}$. We have that $X_\beta = f_I^{-1}(0)$ whenever $\beta$ is the greatest element of $I$. We further have morphisms
+\[ \cF_{IJ} = (i_{I J}, j_{I J}): \cX_I \to \cX_J, \]
+when $I \subset J$, such that $\cF_{JK} \circ \cF_{IJ} = \cF_{IK}$ and $\cF_{II} = \id_{\cX_I}$. Further, if $\beta$ is the greatest element of $I$ and $\gamma$ is the greatest element of $J$, then $\rest{i_{I J}}{X_\beta} = \iota_{\beta \gamma}$.
+
+\begin{lemma}\label{existence-of-good-thickenings}
+In the above context, there exist thickenings $\wt \cX_I = (\wt Y_I, \wt E_I, \wt f_I)$ for each nonempty proper subset $I \subset \{0, \dots, n\}$ such that $\alpha \in I$, together with morphisms
+\[ \wh \cF_I = (\wh i_I, \wh j_I): \cX_I \to \wt \cX_I, \quad \wt \cF_{IJ} = (\wt i_{IJ}, \wt j_{IJ}) : \wt \cX_I \to \wt \cX_J, \]
+such that $\wt \cF_{JK} \circ \wt \cF_{IJ} = \wt \cF_{IK}$, $\wt \cF_{II} = \id_{\wt \cX_I}$, and $\wh \cF_J \circ \cF_{IJ} = \wt \cF_{IJ} \circ \wh \cF_I$. We will further require that $\wt f_I^{-1}(0) = X_n$ and $\rest{\wt i_{IJ}}{X_n} = \id_{X_n}$, and that if $\beta$ is the greatest element of $I$, then $\rest{\wh i_I}{X_\beta} = \iota_{\beta n}$.
+\end{lemma}
+
+\begin{proof}[Proof of Lemma \ref{existence-of-good-thickenings}]
+
+First, suppose $I \neq \{0, \dots, n-1\}$. In this case, we have that $\{0, \dots, \wh \alpha, \dots, n\} \not\subset I \cup \{n\}$, and so we may define
+\[ \wt \cX_I = \cX_{I \cup \{n\}}, \quad \wh \cF_I = \cF_{I (I \cup \{n\})}, \quad \wt \cF_{IJ} = \cF_{(I \cup \{n\})(\{J \cup \{n\})}. \]
+Now, if $\alpha = n$, then we are done. Thus, assume $\alpha < n$, and further assume by induction that the map $\Ex_S(T) \to T$ has the right lighting property with respect to all right horns. Consider the lifting problem for the right horn given by the assignment
+\[ I \mapsto \cX_{I \cup \{\alpha\}}, \quad \left(I \subset J \right) \mapsto \cF_{(I \cup \{ \alpha \})(J \cup \{ \alpha \})}, \]
+defined for nonempty $I \subset \{0, \dots, \wh \alpha, \dots, n\}$, such that $I \not\supset \{0, \dots, \wh \alpha, \dots, n-1\}$. This horn in $\Ex_S(T)$ covers the $(n-1)$-simplex in $S$ given by
 \[\xymatrix{
+X_\alpha \ar[r]^-{\id_{X_\alpha}} & X_\alpha \ar[r]^-{\id_{X_\alpha}} & X_\alpha \ar[r]^-{\iota_{\alpha(\alpha+1)}} & X_{\alpha + 1} \ar[r]^-{\iota_{(\alpha+1)(\alpha+2)}} & \cdots \ar[r]^-{\iota_{(n-1)n}} & X_n
+}\]
+with $\alpha$ copies of $X_\alpha$. Thus, by the lifting property, we may in particular find a thickening $\cZ$ of $X_n$ and morphisms $\cG_I: \wt \cX_I \to \cZ$ for each proper nonempty subset $I \subset \{0, \dots, n\}$ such that $\alpha \in I$ and $I \neq \{0, \dots, n-1\}$, such that $\cG_J \circ \wt \cF_{IJ} = \cG_I$.
 
+\jake{[Need to finish.]}
 
+\end{proof}
+
+With Lemma \ref{existence-of-good-thickenings} in hand, we proceed to solve the lifting problem. By Lemma \ref{vector-bundle-diagrams}, we may factor the functor
+\[ I \mapsto \left( \wt \cF_{\{\alpha\} I}: \wt \cX_{\{\alpha\}} \to \wt \cX_I \right), \quad \left( I \subset J \right) \mapsto \cF_{I J}, \]
+through the category of vector bundles over $Y_{\{\alpha\}}$, up to natural isomorphism. Thus, we may assume WLOG that we have vector bundles $\pi_I: F_I \to Y_{\{\alpha\}}$ and compatible inclusions $g_{I J} : F_I \to F_J$ of vector bundles over $Y_{\{\alpha\}}$, such that
+\[ \wt \cX_I = \TH_{\cX_{\{\alpha\}}}(F_I), \quad  \wt \cF_{IJ} = \TH_{\cX_{\{\alpha\}}}(g_{IJ}). \]
+Now, let $F_{\{0, \dots, n\}}$ be the colimit of $F_I$ over $I$ in the category of vector bundles and vector bundle maps over $Y_{\{\alpha\}}$, and let $g_{I\{0, \dots, n\}}: F_I \to F_{\{0, \dots, n\}}$ be the natural inclusion. Set
+\[ \cX_{\{0, \dots, n\}} = \TH_{\cX_{\{\alpha\}}}(F_{\{0, \dots, n\}}), \quad \cF_{I \{0, \dots, n\}} = \TH_{\cX_{\{\alpha\}}}(g_{I \{0, \dots, n\}}) \circ \wh \cF_{I}. \]
+Thus, to fully solve the lifting problem, it remains to define $\cX_{\{0, \dots, \wh \alpha, \dots, n\}}$ and the morphisms to and from it. If $\alpha \neq n$, then simply set
+\[ \cX_{\{0, \dots, \wh \alpha, \dots, n\}} = \cX_{\{0, \dots, n\}}, \quad \cF_{\{0, \dots, \wh \alpha, \dots, n\} \{0, \dots, n\}} = \id_{\cX_{\{0, \dots, n\}}},\]
+and
+\[\cF_{I \{0, \dots, \wh \alpha, \dots, n\}} = \cF_{I' \{0, \dots, n\}} \circ \cF_{I I'},\]
+where $I' = I \cup \{\alpha\}$. Otherwise, if $\alpha = n$, then choose an open subset $U \subset F_{\{0, \dots, n\}}$ such that $U \cap X_n = X_{n-1}$, which we may do since $X_{n-1}$ is open in $X_n$, and set
+\[ \cX_{\{0, \dots, \wh \alpha, \dots, n\}} = \rest{\cX_{\{0, \dots, n\}}}{U}, \quad \cF_{\{0, \dots, \wh \alpha, \dots, n\} \{0, \dots, n\}} = \rest{\id_{\cX_{\{0, \dots, n\}}}}{U},\]
+and
+\[\cF_{I \{0, \dots, \wh \alpha, \dots, n\}} = \rest{(\cF_{I' \{0, \dots, n\}} \circ \cF_{I I'})}{V_I},\]
+where $V_I$ is an open subset of $Y_I$ that lands within $U$ under the above map. Thus, we have solved the lifting problem, and $\Ex_S(T) \to S$ is a right fibration, as claimed.
 
 \end{proof}
 
