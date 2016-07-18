@@ -61,6 +61,50 @@ Let $\cX = (Y, E, f)$ be a thickening. There is a functor $\TH_\cX$ from the cat
 where $\rho_F$ is the canonical section of $\pi^* F \to F$.
 \end{remark}
 
+\begin{prop}\label{lifting-21-horns}
+Let $S$ be the nerve of the category of Hausdorff spaces and open embeddings, and let $T$ be the nerve of the category $\cT$ defined below in Definition \ref{thickening-charts}. Let $p: T \to S$ be the nerve of the functor given by sending a thickening chart $(Y, E, f)$ to the zero locus $f^{-1}(0)$. Suppose we have a diagram of simplicial sets,
+\[\xymatrix{
+\Lambda^2_1 \ar@{^{(}->}[d] \ar[r] & \Ex_S(T) \ar[d] \\
+\Delta^2 \ar[r] \ar@{-->}[ur] & S
+}\]
+Then there exists a map from $\Delta^2$ to $\Ex_S(T)$, denoted by the dotted arrow, which makes the whole diagram commute.
+\end{prop}
+
+\begin{proof}
+
+More explicitly, the data we are given is a sequence of Hausdorff spaces $X_0, X_1, X_2$, together with open embeddings $\iota_{\alpha \beta}: X_\alpha \to X_\beta$ for $\alpha \leq \beta$ such that $\iota_{\gamma \delta} \circ \iota_{\beta \gamma} = \iota_{\beta \delta}$ and $\iota_{\beta \beta} = \id_{X_\beta}$, together with a diagram of thickenings $\cX_I = (Y_I, E_I, f_I)$, and maps $\cF_{IJ} = (i_{IJ}, j_{IJ}): \cX_I \to \cX_J$,
+\[\xymatrix{
+\cX_{\{0\}} \ar[dr]_-{\cF_{\{0\}\{0,1\}}} & & & & \cX_{\{2\}} \ar[dl]^-{\cF_{\{2\}\{1,2\}}} \\
+& \cX_{\{0, 1\}} & & \cX_{\{1,2\}} & \\
+& & \cX_{\{1\}} \ar[ul]^-{\cF_{\{1\}\{0,1\}}} \ar[ur]_-{\cF_{\{1\}\{1,2\}}} & &
+}\]
+We have further that $f_I^{-1}(0) = X_\alpha$ whenever $\beta$ is the greatest element of $I$, and $\rest{i_{I J}}{X_\alpha} = \iota_{\alpha \beta}$, where $\alpha$ is the greatest element of $I$ and $\beta$ is the greatest element of $J$.
+
+Now, we must construct thickenings $\cX_{\{0,1,2\}}$ and $\cX_{\{0,2\}}$ of $X_n$ fitting into the diagram as
+\[\xymatrix{
+\cX_{\{0\}} \ar[ddr]_-{\cF_{\{0\}\{0,1\}}} \ar[rr]_-{\cF_{\{0\}\{0,2\}}} & & \cX_{\{0, 2\}} \ar[d]^-{\cF_{\{0, 2\}\{0,1,2\}}} & & \cX_{\{2\}} \ar[ddl]^-{\cF_{\{2\}\{1,2\}}} \ar[ll]^-{\cF_{\{2\}\{0,2\}}} \\
+& & \cX_{\{0,1,2\}} & & \\
+& \cX_{\{0, 1\}} \ar[ur]^-{\cF_{\{0, 1\}\{0,1,2\}}} & & \cX_{\{1,2\}} \ar[ul]^-{\cF_{\{1, 2\}\{0,1,2\}}} & \\
+& & \cX_{\{1\}} \ar[ul]^-{\cF_{\{1\}\{0,1\}}} \ar[ur]_-{\cF_{\{1\}\{1,2\}}} & &
+}\]
+Actually, it suffices to find $\cX_{\{0, 1, 2\}}$ and the maps $\cF_{\{0,1\}\{0,1,2\}}, \cF_{\{1, 2\}\{0,1,2\}}$, since we may take $\cX_{\{0, 2\}} = \cX_{\{0, 1, 2\}}$ and $\cF_{\{0,2\}\{0,1,2\}} = \id_{\cX_{\{0, 1, 2\}}}$, defining everything else by the apparent compositions.
+
+Now to construct $\cX_{\{0,1,2\}}$, we first choose an open subset $i: U \hookrightarrow Y_{\{1,2\}}$ such that $U \cap X_2 = X_1$, and consider the thickening
+\[ \cY = \rest{\cX_{\{1,2\}}}{U} = (U, \rest{E_{\{1,2\}}}{U}, \rest{E_{\{1,2\}}}{U}). \]
+Now, we have a span of thickenings $\cX_{\{0,1\}} \leftarrow \cX_{\{1\}} \to \cY$, covering the identity of $X_1$. Thus, by Lemma \ref{vector-bundle-diagrams}, we may find vector bundles $F, F'$ over $Y_{\{1\}}$ such that the above span is just $\TH_{\cX_{\{1\}}}(F) \leftarrow \cX_{\{1\}} \to \TH_{\cX_{\{1\}}}(F')$. Let $\cZ = \TH_{\cX_{\{1\}}}(F \oplus F')$; we thus have a diagram of thickenings of $X_1$
+\[\xymatrix{
+& \cZ & \\
+\cX_{\{0, 1\}} \ar[ur] & & \cY \ar[ul] \\
+& \cX_{\{1\}} \ar[ul] \ar[ur] &
+}\]
+Now, consider the map $\cY \to \cZ$. Again by Lemma \ref{vector-bundle-diagrams}, we have that there is a vector bundle $H$ over $U$ such that $\cZ = \TH_\cY(H)$. Choose an embedding $j: H \hookrightarrow \underline{\RR^k}$ into a trivial vector bundle over $U$; this is always possible. Now, set $\cX_{\{0,1,2\}} = \TH_{\cX_{\{1,2\}}}(\underline{\RR^k})$. There is an evident map $\cZ \to \cX_{\{0,1,2\}}$, given by
+\[ (i \times \id_{\RR^k}) \circ j : H \to Y_{\{1,2\}} \times \RR^k \]
+on manifolds, and with the obvious formula on vector bundles. There is also an evident map $\cF_{\{1,2\}\{0,1,2\}}: \cX_{\{1, 2\}} \to \cX_{\{0,1,2\}}$. Defining $\cF_{\{0,1\}\{0,1,2\}}$ as the composition of the maps $\cX_{\{0,1\}} \to \cZ \to \cX_{\{0,1,2\}}$ completes the diagram, and thus we have the desired lifting property.
+
+
+\end{proof}
+
+
 \begin{prop}\label{presheaf-of-implicit-structures}
 \jake{This says that we have a simplicial presheaf of thickening charts over the category of Hausdorff spaces.} Let $S$ be the nerve of the category of Hausdorff spaces and open embeddings, and let $T$ be the nerve of the category $\cT$ defined below in Definition \ref{thickening-charts}. Let $p: T \to S$ be the nerve of the functor given by sending a thickening chart $(Y, E, f)$ to the zero locus $f^{-1}(0)$. Then the map $\Ex_S(T) \to S$ is a right fibration.
 \end{prop}
@@ -78,7 +122,7 @@ Let $D: \cD \to \cT_{\cX /}$ be any diagram, where $\cD$ is a poset. Suppose tha
 
 Suppose we are given a simplex $\Delta^n \to S$, together with a lift of $\Lambda^n_\alpha \subset \Delta^n$ to a map $\Lambda^n_\alpha \to \Ex_S(T)$. We need to show that there exists a simplex $\Delta^n \to \Ex_S(T)$ compatible with the given data as long as $0 < \alpha \leq n$. We will induct on the poset $\{ \mathrm{RH} \leq \mathrm{IH} \}$, where $\mathrm{RH}$ denotes right horns, and $\mathrm{IH}$ denotes inner horns. That is, at each step in the proof, if we make an argument that depends on casework for right horns and inner horns separately, in the case of inner horns, we will allow ourselves to assume that the proposition is already proven for right horns.
 
-More explicitly, we are given Hausdorff spaces $X_0, \dots, X_n$, together with embeddings $\iota_{\beta \gamma}: X_\beta \hookrightarrow X_\gamma$ when $\beta < \gamma$ such that $\iota_{\gamma \delta} \circ \iota_{\beta \gamma} = \iota_{\beta \delta}$ and $\iota_{\beta \beta} = \id_{X_\beta}$. WLOG, we may assume that $\iota_{\beta \gamma}$ is the inclusion of an open subset. We further have thickening charts $\cX_I = (Y_I, E_I, f_I)$ for each nonempty subset $I \subset \{0, \dots, n\}$ such that $I$ does not contain $\{0, \dots, \widehat{\alpha}, \dots, n\}$. We have that $X_\beta = f_I^{-1}(0)$ whenever $\beta$ is the greatest element of $I$. We further have morphisms
+More explicitly, we are given Hausdorff spaces $X_0, \dots, X_n$, together with embeddings $\iota_{\beta \gamma}: X_\beta \hookrightarrow X_\gamma$ when $\beta \leq \gamma$ such that $\iota_{\gamma \delta} \circ \iota_{\beta \gamma} = \iota_{\beta \delta}$ and $\iota_{\beta \beta} = \id_{X_\beta}$. WLOG, we may assume that $\iota_{\beta \gamma}$ is the inclusion of an open subset. We further have thickening charts $\cX_I = (Y_I, E_I, f_I)$ for each nonempty subset $I \subset \{0, \dots, n\}$ such that $I$ does not contain $\{0, \dots, \widehat{\alpha}, \dots, n\}$. We have that $X_\beta = f_I^{-1}(0)$ whenever $\beta$ is the greatest element of $I$. We further have morphisms
 \[ \cF_{IJ} = (i_{I J}, j_{I J}): \cX_I \to \cX_J, \]
 when $I \subset J$, such that $\cF_{JK} \circ \cF_{IJ} = \cF_{IK}$ and $\cF_{II} = \id_{\cX_I}$. Further, if $\beta$ is the greatest element of $I$ and $\gamma$ is the greatest element of $J$, then $\rest{i_{I J}}{X_\beta} = \iota_{\beta \gamma}$.
 
